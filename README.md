@@ -8,4 +8,4 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 
 [gitlog.txt](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-[komentorivi.txt](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
