@@ -1,4 +1,5 @@
 from tkinter import ttk, constants
+from services.calculator_services import CalculatorServices
 
 class CalculatorView:
     """Laskimen näkymä"""
@@ -13,6 +14,7 @@ class CalculatorView:
         """
         self._root = root
         self._frame = None
+        self._calculator = CalculatorServices()
         
         self._initialize()
         
@@ -24,37 +26,34 @@ class CalculatorView:
         """Tuhoaa näkymän"""
         self._frame.destroy()
     
-    def _handle_button_click(self, number):
-        pass
-    
-    def _initialize_buttons(self):
+    def _initialize_buttons(self, entry):
         """Muodostaa käyttöliittymän näppäimet"""
         
-        """Muodostaa näppäimet: ( ) = CE C ."""
-        button_left_bracket = ttk.Button(self._frame, text="(", command=lambda: self._handle_button_click("("))
-        button_right_right = ttk.Button(self._frame, text=")", command=lambda: self._handle_button_click("("))
-        button_equal = ttk.Button(self._frame, text="=", command=lambda: self._handle_button_click("="))
-        button_C = ttk.Button(self._frame, text="C", command=lambda: self._handle_button_click("C"))
-        button_CE = ttk.Button(self._frame, text="CE", command=lambda: self._handle_button_click("CE"))
-        button_point = ttk.Button(self._frame, text=".", command=lambda: self._handle_button_click("."))
-        
         """Muodostaa näppäimet 0-9"""
-        button_one = ttk.Button(self._frame, text="1", command=lambda: self._handle_button_click("1"))
-        button_two = ttk.Button(self._frame, text="2", command=lambda: self._handle_button_click("2"))
-        button_three = ttk.Button(self._frame, text="3", command=lambda: self._handle_button_click("3"))
-        button_four = ttk.Button(self._frame, text="4", command=lambda: self._handle_button_click("4"))
-        button_five = ttk.Button(self._frame, text="5", command=lambda: self._handle_button_click("5"))
-        button_six = ttk.Button(self._frame, text="6", command=lambda: self._handle_button_click("6"))
-        button_seven = ttk.Button(self._frame, text="7", command=lambda: self._handle_button_click("7"))
-        button_eight = ttk.Button(self._frame, text="8", command=lambda: self._handle_button_click("8"))
-        button_nine = ttk.Button(self._frame, text="9", command=lambda: self._handle_button_click("9"))
-        button_zero = ttk.Button(self._frame, text="0", command=lambda: self._handle_button_click("0"))
-        
+        button_one = ttk.Button(self._frame, text="1", command=lambda: self._calculator._add_number(entry, 1))
+        button_two = ttk.Button(self._frame, text="2", command=lambda: self._calculator._add_number(entry, 2))
+        button_three = ttk.Button(self._frame, text="3", command=lambda: self._calculator._add_number(entry, 3))
+        button_four = ttk.Button(self._frame, text="4", command=lambda: self._calculator._add_number(entry, 4))
+        button_five = ttk.Button(self._frame, text="5", command=lambda: self._calculator._add_number(entry, 5))
+        button_six = ttk.Button(self._frame, text="6", command=lambda: self._calculator._add_number(entry, 6))
+        button_seven = ttk.Button(self._frame, text="7", command=lambda: self._calculator._add_number(entry, 7))
+        button_eight = ttk.Button(self._frame, text="8", command=lambda: self._calculator._add_number(entry, 8))
+        button_nine = ttk.Button(self._frame, text="9", command=lambda: self._calculator._add_number(entry, 9))
+        button_zero = ttk.Button(self._frame, text="0", command=lambda: self._calculator._add_number(entry, 0))
+
         """Muodostaa laskutoimitus näppäimet"""
-        button_add = ttk.Button(self._frame, text="+", command=lambda: self._handle_button_click("+"))
-        button_sub = ttk.Button(self._frame, text="-", command=lambda: self._handle_button_click("-"))
-        button_mul = ttk.Button(self._frame, text="*", command=lambda: self._handle_button_click("*"))
-        button_div = ttk.Button(self._frame, text="/", command=lambda: self._handle_button_click("/"))
+        button_add = ttk.Button(self._frame, text="+", command=lambda: self._calculator._button_click_add(entry))
+        button_sub = ttk.Button(self._frame, text="-", command=lambda: self._calculator._button_click_sub(entry))
+        button_mul = ttk.Button(self._frame, text="*", command=lambda: self._calculator._button_click_mul(entry))
+        button_div = ttk.Button(self._frame, text="/", command=lambda: self._calculator._button_click_div(entry))
+
+        """Muodostaa näppäimet: ( ) = CE C ."""
+        button_left_bracket = ttk.Button(self._frame, text="(", command=lambda: self._calculator._left_bracket(entry))
+        button_right_right = ttk.Button(self._frame, text=")", command=lambda: self._calculator._right_bracket(entry))
+        button_C = ttk.Button(self._frame, text="C", command=lambda: self._calculator._button_click_C(entry))
+        button_CE = ttk.Button(self._frame, text="CE", command=lambda: self._calculator._button_click_CE(entry))
+        button_point = ttk.Button(self._frame, text=".", command=lambda: self._calculator._button_click_point(entry))
+        button_equal = ttk.Button(self._frame, text="=", command=lambda: self._calculator._button_click_equal(entry))
         
         """Button grids"""
         
@@ -91,9 +90,7 @@ class CalculatorView:
     def _initialize(self):
         """Alustaa laskimen näkymän"""
         self._frame = ttk.Frame(master=self._root)
-        label = ttk.Label(master=self._frame, text="Moi")
         entry = ttk.Entry(self._frame)
-        entry.grid(row=0, column=0, columnspan=5, padx=10, pady=10)
+        entry.grid(row=0, column=0, ipadx=90, columnspan=5, padx=10, pady=10)
         
-        self._initialize_buttons()
-        
+        self._initialize_buttons(entry)
