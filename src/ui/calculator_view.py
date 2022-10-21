@@ -48,8 +48,8 @@ class CalculatorView:
         button_div = ttk.Button(self._frame, text="/", command=lambda: self._calculator._button_click_div(entry))
 
         """Muodostaa näppäimet: ( ) = CE C ."""
-        button_left_bracket = ttk.Button(self._frame, text="(", command=lambda: self._calculator._left_bracket(entry))
-        button_right_right = ttk.Button(self._frame, text=")", command=lambda: self._calculator._right_bracket(entry))
+        button_left_bracket = ttk.Button(self._frame, text="(", command=lambda: self._calculator._button_left_bracket(entry))
+        button_right_right = ttk.Button(self._frame, text=")", command=lambda: self._calculator._button_right_bracket(entry))
         button_C = ttk.Button(self._frame, text="C", command=lambda: self._calculator._button_click_C(entry))
         button_CE = ttk.Button(self._frame, text="CE", command=lambda: self._calculator._button_click_CE(entry))
         button_point = ttk.Button(self._frame, text=".", command=lambda: self._calculator._button_click_point(entry))
