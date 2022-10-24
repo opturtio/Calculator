@@ -14,6 +14,7 @@ class CalculatorServices:
         self._right_brackets = 0
         self._signs = "+-*/"
         self._signs_and_symbols = "+-*/.("
+        self._signs_and_symbols_without_left_bracket = "+-*/."
         self._error_message = False
         self._left_bracket = 0
         self._right_bracket = 0
@@ -30,7 +31,7 @@ class CalculatorServices:
         if sign in self._signs_and_symbols:
             self._error_message = True
             entry.delete(0, 'end')
-            entry.insert(0, f"You cannot enter two signs in a row")
+            entry.insert(0, f"You cannot enter two signs/symbols in a row")
             
     def _handle_two_points_error(self, entry):
         """Hoitaa kahden pisteen virheen"""
@@ -43,6 +44,12 @@ class CalculatorServices:
         self._error_message = True
         entry.delete(0, 'end')
         entry.insert(0, f"You have to enter sign before bracket")
+        
+    def _handle_number_after_right_bracket_error(self, entry):
+        """Hoitaa virheen numero oikean sulkeen jälkeen"""
+        self._error_message = True
+        entry.delete(0, 'end')
+        entry.insert(0, f"You have to enter sign after bracket")
         
     def _handle_right_bracket_error(self, entry):
         """Hoitaa oikean sulkeen virheen"""
@@ -60,6 +67,10 @@ class CalculatorServices:
         """Lisää annetun numeron merkkijonoon"""
         self._check_error_message(entry)
         self._calculation = entry.get()
+        if len(self._calculation) > 0:
+            if self._calculation[-1] == ")":
+                self._handle_number_after_right_bracket_error(entry)
+                return
         self._calculation += str(number)
         entry.delete(0, 'end')
         entry.insert(0, self._calculation)
@@ -141,6 +152,10 @@ class CalculatorServices:
         self._check_error_message(entry)
         self._right_bracket += 1
         self._calculation = entry.get()
+        if self._calculation[-1] in self._signs_and_symbols_without_left_bracket:
+            self._handle_two_signs_error(entry, "+")
+            self._right_bracket -= 1
+            return
         if self._right_bracket > self._left_bracket:
             self._handle_right_bracket_error(entry)
             self._right_bracket -= 1
@@ -178,3 +193,6 @@ class CalculatorServices:
         self._calculation_finished = True
         entry.delete(0, 'end')
         entry.insert(0, eval(self._calculation))
+
+    def __str__(self):
+        return self._calculation
