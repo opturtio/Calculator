@@ -1,6 +1,6 @@
-# Harjoitustyö
+# Calculator
 
-Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmistotekniikka-kurssille.
+Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmistotekniikka-kurssille. Aloitin työn tekemisen ennen kurssia ja teen sen nyt loppuun kurssin puitteissa.
 
 
 ## Laskarit
@@ -12,5 +12,9 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 [komentorivi.txt](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 
+**_Viikko_ 2**
 
 
+
+## Dokumentaatio
+- [Työaikakirjanpito] (./dokumentaatio/tuntikirjanpito.md)
