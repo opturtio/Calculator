@@ -14,7 +14,7 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 
 **_Viikko_ 2**
 
-
+[coverage_report.png](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage_report.png)
 
 ## Dokumentaatio
-- [Työaikakirjanpito] (./dokumentaatio/tuntikirjanpito.md)
+- [Työaikakirjanpito](https://github.com/opturtio/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
