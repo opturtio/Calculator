@@ -61,7 +61,7 @@ class CalculatorServices:
         self._error_message = True
         self._entry.delete(0, 'end')
         self._entry.insert(0, f"Enter {self._left_bracket-self._right_bracket} more right brackets")
-
+    
     def add_number(self, number):
         """Lisää annetun numeron merkkijonoon"""
         self._check_error_message()
@@ -121,9 +121,10 @@ class CalculatorServices:
     def _button_click_point(self):
         """Lisää pisteen merkkijonoon"""
         self._check_error_message()
-        if "." in self._calculation:
-            self._handle_two_points_error()
-            return
+        #TODO muuta tätä jotta voi olla kaksi pistettä laskussa
+        #if "." in self._calculation:
+        #    self._handle_two_points_error()
+        #    return
         self._calculation = self._entry.get()
         self._entry.delete(0, 'end')
         self._calculation += "."
