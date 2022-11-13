@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant main
+    participant HKLLaitehallinto
+    participant Kioski
+    participant Matkakortti
+    participant Lataajalaite
+    participant Lukijalaite
+
+    rect rgb(191, 223, 255)
+    main->>HKLLaitehallinto: laitehallinto = HKLLaitehallinto()
+    main->>Lataajalaite: rautatietori = Lataajalaite()
+    main->>Lukijalaite: ratikka6 = Lukijalaite()
+    main->>Lukijalaite: bussi244 = Lukijalaite()

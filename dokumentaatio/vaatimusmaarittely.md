@@ -21,3 +21,10 @@ Käyttöliittymään ei ainakaan vielä tarvitse kirjautua. Laskinta voi alkaa k
 - Laskimessa voi käyttää sulkeita
 - Laskutoimituksen voi poistaa tai sitä voi korjata pyyhkimällä viimeisin syöte
 - Laskimella voi laskea kokonais- tai liukulukuja
+
+## Jatkokehitys ideat
+
+- Graafinen laskin
+- Funktiot käyttöön
+- Käyttäjillä voisi olla henkilökohtaisia väri/kuva teemoja
+- pi, prosentti, neperinluku jne. painikkeet
