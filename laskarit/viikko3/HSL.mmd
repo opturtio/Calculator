@@ -6,8 +6,24 @@ sequenceDiagram
     participant Lataajalaite
     participant Lukijalaite
 
-    rect rgb(191, 223, 255)
     main->>HKLLaitehallinto: laitehallinto = HKLLaitehallinto()
     main->>Lataajalaite: rautatietori = Lataajalaite()
     main->>Lukijalaite: ratikka6 = Lukijalaite()
     main->>Lukijalaite: bussi244 = Lukijalaite()
+    
+    main->>HKLLaitehallinto: lisaa_lataaja(rautatientori)
+    main->>HKLLaitehallinto: lisaa_lukija(ratikka6)
+    main->>HKLLaitehallinto: lisaa_lukija(bussi244)
+    
+    main->>Kioski: Kioski()
+    Kioski->>Matkakortti: osta_matkakortti("Kalle")
+    Matkakortti->>Kioski: return uusi_matkakortti
+    
+    main->>Lataajalaite: lataa_arvoa(kallen_kortti, 3)
+    Lataajalaite->>Matkakortti: kasvata_arvoa(3)
+    main->>Lukijalaite: osta_lippu(kallen_kortti, 0)
+    Lukijalaite->>Matkakortti: vahenna_arvoa(1.5)
+    Matkakortti-->>main: True
+    main->>Lukijalaite: osta_lippu(kallen_kortti, 2)
+    Lukijalaite->>Matkakortti: vahenna_arvoa(3.5)
+    Matkakortti-->>main: False
