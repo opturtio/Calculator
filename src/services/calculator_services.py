@@ -61,7 +61,7 @@ class CalculatorServices:
         self._error_message = True
         self._entry.delete(0, 'end')
         self._entry.insert(0, f"Enter {self._left_bracket-self._right_bracket} more right brackets")
-    
+
     def add_number(self, number):
         """Lisää annetun numeron merkkijonoon"""
         self._check_error_message()
@@ -122,9 +122,9 @@ class CalculatorServices:
         """Lisää pisteen merkkijonoon"""
         self._check_error_message()
         #TODO muuta tätä jotta voi olla kaksi pistettä laskussa
-        #if "." in self._calculation:
-        #    self._handle_two_points_error()
-        #    return
+        if "." in self._calculation:
+            self._handle_two_points_error()
+            return
         self._calculation = self._entry.get()
         self._entry.delete(0, 'end')
         self._calculation += "."
@@ -139,7 +139,7 @@ class CalculatorServices:
             self._left_bracket += 1
             self._entry.insert(0, self._calculation)
             return
-        if self._calculation[-1] not in self._signs:
+        if len(self._calculation) > 0 and self._calculation[-1] not in self._signs:
             self._handle_left_bracket_error()
             return
         self._entry.delete(0, 'end')
@@ -152,10 +152,11 @@ class CalculatorServices:
         self._check_error_message()
         self._right_bracket += 1
         self._calculation = self._entry.get()
-        if self._calculation[-1] in self._signs_and_symbols_without_left_bracket:
-            self._handle_two_signs_error("+")
-            self._right_bracket -= 1
-            return
+        if len(self._calculation) > 0:
+            if self._calculation[-1] in self._signs_and_symbols_without_left_bracket:
+                self._handle_two_signs_error("+")
+                self._right_bracket -= 1
+                return
         if self._right_bracket > self._left_bracket:
             self._handle_right_bracket_error()
             self._right_bracket -= 1
@@ -164,7 +165,7 @@ class CalculatorServices:
         self._calculation += ")"
         self._entry.insert(0, self._calculation)
 
-    def _button_click_C(self):
+    def _button_click_clear(self):
         """Poistaa koko syötetyn merkkijonon"""
         self._check_error_message()
         self._entry.delete(0, 'end')
@@ -172,14 +173,14 @@ class CalculatorServices:
         self._left_bracket = 0
         self._right_bracket = 0
 
-    def _button_click_CE(self):
+    def _button_click_clear_entry(self):
         """Poistaa yhden merkin"""
         self._check_error_message()
         self._calculation = self._entry.get()
         self._entry.delete(0, 'end')
-        if self._calculation[-1] == "(":
+        if len(self._calculation) > 0 and self._calculation[-1] == "(":
             self._left_bracket -= 1
-        if self._calculation[-1] == ")":
+        if len(self._calculation) > 0 and self._calculation[-1] == ")":
             self._right_bracket -= 1
         self._calculation = self._calculation[:-1]
         self._entry.insert(0, self._calculation)
@@ -191,6 +192,7 @@ class CalculatorServices:
             self._handle_equal_error()
             return
         self._entry.delete(0, 'end')
+        print(self._calculation)
         self._entry.insert(0, eval(self._calculation))
 
     def __str__(self):

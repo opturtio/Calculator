@@ -18,3 +18,4 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 
 ## Dokumentaatio
 - [Työaikakirjanpito](https://github.com/opturtio/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)

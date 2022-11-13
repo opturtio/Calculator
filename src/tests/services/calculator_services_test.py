@@ -65,13 +65,13 @@ class TestCalculatorServices(unittest.TestCase):
     def test_button_click_C_wipes_input(self):
         self.calculator.add_number(3)
         self.calculator._button_click_mul()
-        self.calculator._button_click_C()
+        self.calculator._button_click_clear()
         self.assertEqual(str(self.calculator), "")
         
-    def test_button_click_CE_wipes_one(self):
+    def test_button_click_clear_entry_wipes_one(self):
         self.calculator.add_number(3)
         self.calculator._button_click_mul()
-        self.calculator._button_click_CE()
+        self.calculator._button_click_clear_entry()
         self.assertEqual(str(self.calculator), "3")
         
     def test_button_click_equal(self):
@@ -88,7 +88,7 @@ class TestCalculatorServices(unittest.TestCase):
         self.calculator.add_number(1)
         self.calculator._button_click_add()
         self.calculator._button_left_bracket()
-        self.calculator._button_click_CE()
+        self.calculator._button_click_clear_entry()
         self.assertEqual(self.calculator._left_bracket, 1)
         
     def test_clicking_CE_deletes_right_bracket(self):
@@ -97,7 +97,7 @@ class TestCalculatorServices(unittest.TestCase):
         self.calculator._button_click_add()
         self.calculator.add_number(1)
         self.calculator._button_right_bracket()
-        self.calculator._button_click_CE()
+        self.calculator._button_click_clear_entry()
         self.assertEqual(self.calculator._right_bracket, 0)
         
     def test_click_equal_same_amount_brackets(self):
