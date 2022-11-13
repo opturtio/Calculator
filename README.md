@@ -14,8 +14,13 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 
 **_Viikko_ 2**
 
-[coverage_report.png](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage_report.png)
+[coverage_report-syksy](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage_report.png)
+
 Jouduin tekemään tehtävän projektin ulkopuolella ja unohdin lisätä .coveragerc tiedoston, joten testiin tuli mukaan tests-kansio. Olisin voinut poistaa ne lisäämällä omitin .coveragerc tiedostoon.
+
+Tässä kuitenkin kesällä tehty coverage-report, jossa on omit määritelty:
+
+[coverage_report-kesä](./laskarit/viikko2/coverage_report.jpg)
 
 **_Viikko_ 3**
 
