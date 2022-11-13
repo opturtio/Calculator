@@ -15,6 +15,11 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 **_Viikko_ 2**
 
 [coverage_report.png](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage_report.png)
+Jouduin tekemään tehtävän projektin ulkopuolella ja unohdin lisätä .coveragerc tiedoston, joten testiin tuli mukaan tests-kansio. Olisin voinut poistaa ne lisäämällä omitin .coveragerc tiedostoon.
+
+**_Viikko_ 3**
+
+[Kaaviot](https://github.com/opturtio/ot-harjoitustyo/blob/master/laskarit/viikko3/viikko3.md)
 
 ## Dokumentaatio
 - [Työaikakirjanpito](https://github.com/opturtio/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
