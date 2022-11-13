@@ -18,9 +18,6 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 
 Jouduin tekemään tehtävän projektin ulkopuolella ja unohdin lisätä .coveragerc tiedoston, joten testiin tuli mukaan tests-kansio. Olisin voinut poistaa ne lisäämällä omitin .coveragerc tiedostoon.
 
-Tässä kuitenkin kesällä tehty coverage-report, jossa on omit määritelty:
-
-[coverage_report-kesä](./laskarit/viikko2/coverage_report.jpg)
 
 **_Viikko_ 3**
 
