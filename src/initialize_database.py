@@ -15,9 +15,10 @@ def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        create table users (
-            username text primary key,
-            password text
+        create table calculations (
+            ID PRIMERY KEY,
+            calculation TEXT,
+            timestamp DATE
         );
     ''')
 

@@ -1,4 +1,3 @@
-
 from tkinter import Tk
 from ui.ui import UI
 
@@ -6,7 +5,6 @@ from ui.ui import UI
 def main():
     window = Tk()
     window.title("Calculator")
-
     interface = UI(window)
 
     interface.start()

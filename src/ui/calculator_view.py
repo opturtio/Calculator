@@ -15,7 +15,6 @@ class CalculatorView:
         self._root = root
         self._frame = None
         self._calculator = None
-
         self._initialize()
 
     def pack(self):
@@ -106,7 +105,9 @@ class CalculatorView:
         button_point.grid(row=5, column=1, padx=3, pady=3)
         button_equal.grid(row=5, column=2, padx=3, pady=3)
         button_add.grid(row=5, column=3, padx=3, pady=3)
+    
 
+    
     def _initialize(self):
         """Alustaa laskimen näkymän"""
         self._frame = ttk.Frame(master=self._root)
