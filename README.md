@@ -20,7 +20,7 @@ poetry install
 ## Komentorivitoiminnot
 
 #### Ohjelman suorittaminen
-Suorittaa ohjelma komennolla:
+Suorittaa ohjelman komennolla:
 
 ```bash
 poetry run invoke start
