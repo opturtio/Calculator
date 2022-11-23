@@ -5,11 +5,10 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        drop table if exists users;
+        drop table if exists calculations;
     ''')
 
     connection.commit()
-
 
 def create_tables(connection):
     cursor = connection.cursor()
@@ -26,10 +25,13 @@ def create_tables(connection):
 
 
 def initialize_database():
+    print("start")
     connection = get_database_connection()
 
     drop_tables(connection)
+    print("DROP TABLE toimii ")
     create_tables(connection)
+    print("CREATE TABLE toimii")
 
 
 if __name__ == "__main__":
