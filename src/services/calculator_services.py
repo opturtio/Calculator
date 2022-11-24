@@ -1,7 +1,11 @@
+from repositories.calculator_repository import (
+    calculator_repository as default_calculator_repository
+)
+
 class CalculatorServices:
     """Luokka hoitaa laskimen toiminnot"""
 
-    def __init__(self, entry):
+    def __init__(self, entry, calculator_repository=default_calculator_repository):
         """
         Konstruktori
 
@@ -10,6 +14,7 @@ class CalculatorServices:
                 TKinter-elementti, jonka sisään näkymä alustetaan
         """
         self._entry = entry
+        self._calculator_repository = calculator_repository
         self._calculation = ""
         self._signs = "+-*/"
         self._signs_and_symbols = "+-*/.("
@@ -192,8 +197,11 @@ class CalculatorServices:
             self._handle_equal_error()
             return
         self._entry.delete(0, 'end')
-        print(self._calculation)
-        self._entry.insert(0, eval(self._calculation))
+
+        result = eval(self._calculation)
+
+        self._entry.insert(0, result)
+        self._calculator_repository.add_calculation(result)
 
     def __str__(self):
         """Palauttaa laskimen näytön tämän hetkisen tilan"""
