@@ -22,4 +22,4 @@ class CalculatorRepository:
         db.execute("DROP TABLE Connections")
 
 
-calculator_repository = CalculatorRepository(get_database_connection)
+calculator_repository = CalculatorRepository(get_database_connection())
