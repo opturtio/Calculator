@@ -1,13 +1,14 @@
 # Calculator
 
-HUOM! Sovellus toimi vielä tiistaina 22.11 mutta tällä hetkellä on ongelmia tietokannan kanssa. 
+HUOM! Sovellus toimii mutta uudet toiminnallisuudet ovat haarassa second.
 
 Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmistotekniikka-kurssille.
 
 Calculator on yksinkertainen laskin. Voit laskea sillä peruslaskutoimituksia. Ohjelma laajenee kurssin myötä.
 
 ## Dokumentaatio
-- [Työaikakirjanpito](https://github.com/opturtio/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Arkkitehtuuri](./dokumentaatio/arkkitehtuuri.md)
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Changelog](./dokumentaatio/changelog.md)
 
