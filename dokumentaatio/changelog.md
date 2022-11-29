@@ -15,4 +15,4 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Format lisäys taskeihin
 - Menubarin rakentaminen alkanut
 - Menubar näkymä toimii
-- Suunnitelmia Error-luokan rakentamisesta
+- Koitin eriyttää calculator_services-luokasta error_handling-metodeja omaksi luokaksi mutta tässä vaihteessa sovelluksen rakentamista se vei liikaa aikaa ja hylkäsin sen tekemisen
