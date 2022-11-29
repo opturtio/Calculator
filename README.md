@@ -48,3 +48,10 @@ Tarkistaa koodin laadun:
 ```bash
 poetry run invoke lint
 ```
+
+#### Autopep8 - koodin formatointi
+Koodin automaattinen formatointi:
+
+```bash
+poetry run invoke format
+```

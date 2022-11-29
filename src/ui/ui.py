@@ -1,5 +1,6 @@
 from ui.calculator_view import CalculatorView
 
+
 class UI:
     """Sovelluksen käyttöliittymästä vastaava luokka"""
 
@@ -8,7 +9,7 @@ class UI:
         Käyttöliittymäluokka joka vastaa näkymästä ja sen vaihtamisesta.
 
         Args:
-            root: 
+            root:
                 Tkinter-elementti: Alustaa käyttöliittymän.
         """
 

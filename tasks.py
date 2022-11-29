@@ -23,3 +23,7 @@ def lint(ctx):
 @task
 def build(ctx):
     ctx.run("python3 src/build.py", pty=True)
+
+@task
+def format(ctx):
+    ctx.run("autopep8 --in-place --recursive src")

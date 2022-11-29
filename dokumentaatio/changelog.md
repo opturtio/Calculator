@@ -8,3 +8,11 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Aloitin tekemään tietokantaa, johon tallennan laskutoimitukset mutta en ehtinyt tehdä paljoa. Jostain syystä tietokantaa ei voitu luoda.
 - Tein kaikki harjoitustyön osiot
 - README.md on jäsennelty ja kaikki ylimääräinen esim. laskareiden linkit poistettu
+
+## Viikko 4
+
+- Tietokantaan voi tallentaa
+- Format lisäys taskeihin
+- Menubarin rakentaminen alkanut
+- Menubar näkymä toimii
+- Suunnitelmia Error-luokan rakentamisesta

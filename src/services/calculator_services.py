@@ -2,6 +2,7 @@ from repositories.calculator_repository import (
     calculator_repository as default_calculator_repository
 )
 
+
 class CalculatorServices:
     """Luokka hoitaa laskimen toiminnot"""
 
@@ -35,7 +36,8 @@ class CalculatorServices:
         if sign in self._signs_and_symbols:
             self._error_message = True
             self._entry.delete(0, 'end')
-            self._entry.insert(0, f"You cannot enter two signs/symbols in a row")
+            self._entry.insert(
+                0, f"You cannot enter two signs/symbols in a row")
 
     def _handle_two_points_error(self):
         """Hoitaa kahden pisteen virheen"""
@@ -65,7 +67,8 @@ class CalculatorServices:
         """Hoitaa laskutoimituksen virheen"""
         self._error_message = True
         self._entry.delete(0, 'end')
-        self._entry.insert(0, f"Enter {self._left_bracket-self._right_bracket} more right brackets")
+        self._entry.insert(
+            0, f"Enter {self._left_bracket-self._right_bracket} more right brackets")
 
     def add_number(self, number):
         """Lisää annetun numeron merkkijonoon"""
@@ -126,7 +129,7 @@ class CalculatorServices:
     def _button_click_point(self):
         """Lisää pisteen merkkijonoon"""
         self._check_error_message()
-        #TODO muuta tätä jotta voi olla kaksi pistettä laskussa
+        # TODO muuta tätä jotta voi olla kaksi pistettä laskussa
         if "." in self._calculation:
             self._handle_two_points_error()
             return
