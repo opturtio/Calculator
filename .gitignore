@@ -5,3 +5,4 @@ htmlcov
 .vscode
 /src/data/database.sqlite
 /src/tests/test-database.sqlite
+/laskarit
