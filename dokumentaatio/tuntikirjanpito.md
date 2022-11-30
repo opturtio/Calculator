@@ -11,4 +11,5 @@
 | 23.11 | 5    | Tietokannan kaikki tiedostot luotu ja tietokanta toimii. Alustava CalculatorRepository luokka luotu |
 | 24.11 | 5    | CalculatorRepository luokka ja tietokantaan lisäys valmiina. Kamppailu AttributeErrorin kanssa |
 | 29.11 | 8    | Kaikenlaista kokeilua. Menubarin luonti ja Calculation-luokka lisätty, jota käytetään tallentamaan laskutoimitus |
-| yht.  | 43   | |
+| 30.11 | 5    | Erotin ja korjasin Calculation ja CalculationServices-luokkien testit |
+| yht.  | 48   | |

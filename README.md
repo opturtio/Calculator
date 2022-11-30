@@ -1,7 +1,5 @@
 # Calculator
 
-HUOM! Sovellus toimii mutta uudet toiminnallisuudet ovat haarassa second.
-
 Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmistotekniikka-kurssille.
 
 Calculator on yksinkertainen laskin. Voit laskea sillä peruslaskutoimituksia. Ohjelma laajenee kurssin myötä.

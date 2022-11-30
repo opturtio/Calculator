@@ -144,7 +144,7 @@ class CalculatorServices:
         """Lisää pisteen merkkijonoon"""
         self._check_error_message()
         # TODO muuta tätä jotta voi olla kaksi pistettä laskussa
-        if "." in self._calculation:
+        if "." in self._calculation.return_calculation():
             self._handle_two_points_error()
             return
 
@@ -232,4 +232,4 @@ class CalculatorServices:
 
     def __str__(self):
         """Palauttaa laskimen näytön tämän hetkisen tilan"""
-        return self._calculation.return_input()
+        return self._entry.get()

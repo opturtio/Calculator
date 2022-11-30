@@ -16,3 +16,10 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Menubarin rakentaminen alkanut
 - Menubar näkymä toimii
 - Koitin eriyttää calculator_services-luokasta error_handling-metodeja omaksi luokaksi mutta tässä vaihteessa sovelluksen rakentamista se vei liikaa aikaa ja hylkäsin sen tekemisen
+- Tein Calculation-luokan, joka helpotti huomattavasti koodin lukemista
+
+## Viikko 5
+
+- Testit toimii muutosten jälkeen
+- Erotin osan testeistä testaamaan Calculation-luokkaa
+- Lisäsin testejä

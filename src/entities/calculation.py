@@ -12,8 +12,8 @@ class Calculation:
         return self._calculation
 
     def return_input(self):
-        if len(self._calculation) > 40:
-            return self._calculation[len(self._calculation)-40:] # FIXME check this out
+        if len(self._calculation) >= 42:
+            return self._calculation[len(self._calculation)-42:]
         return self._calculation
 
     def return_last(self):
