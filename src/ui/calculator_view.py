@@ -1,6 +1,7 @@
 from tkinter import ttk, constants
 from tkinter import *
 from services.calculator_services import CalculatorServices
+from services.menubar_service import MenubarServices
 
 
 class CalculatorView:
@@ -17,6 +18,7 @@ class CalculatorView:
         self._root = root
         self._frame = None
         self._calculator = None
+        self._menubar = None
         self._initialize()
 
     def pack(self):
@@ -109,9 +111,10 @@ class CalculatorView:
         button_add.grid(row=5, column=3, padx=3, pady=3)
 
     def _initialize_menu(self):
+        """Muodostaa käyttöliittymän menun"""
         menubar = Menu(self._root)
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="New", command=print("toimii"))
+        filemenu.add_command(label="New", command=self._menubar.create_new())
         filemenu.add_command(label="Open", command=print("toimii"))
         filemenu.add_command(label="Save", command=print("toimii"))
         filemenu.add_separator()
@@ -137,5 +140,6 @@ class CalculatorView:
         entry = ttk.Entry(self._frame)
         entry.grid(row=0, column=0, ipadx=90, columnspan=5, padx=10, pady=10)
         self._calculator = CalculatorServices(entry)
+        self._menubar = MenubarServices(entry)
         self._initialize_buttons()
         self._initialize_menu()

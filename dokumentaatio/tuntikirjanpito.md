@@ -10,4 +10,6 @@
 | 22.11 | 5    | Loin changelogin, jäsentelin README.md ja koitin tehdä tietokantaa ja menubaria |
 | 23.11 | 5    | Tietokannan kaikki tiedostot luotu ja tietokanta toimii. Alustava CalculatorRepository luokka luotu |
 | 24.11 | 5    | CalculatorRepository luokka ja tietokantaan lisäys valmiina. Kamppailu AttributeErrorin kanssa |
-| yht.  | 35   | |
+| 29.11 | 8    | Kaikenlaista kokeilua. Menubarin luonti ja Calculation-luokka lisätty, jota käytetään tallentamaan laskutoimitus |
+| 30.11 | 5    | Erotin ja korjasin Calculation ja CalculationServices-luokkien testit |
+| yht.  | 48   | |
