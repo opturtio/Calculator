@@ -6,3 +6,4 @@ htmlcov
 /src/data/
 /src/tests/test-database.sqlite
 /laskarit
+/data

@@ -6,7 +6,7 @@ from entities.calculation import (
 )
 
 
-class CalculatorServices:
+class CalculatorService:
     """Luokka hoitaa laskimen toiminnot"""
 
     def __init__(self, entry, calculator_repository=default_calculator_repository,
@@ -229,7 +229,14 @@ class CalculatorServices:
         self._entry.insert(0, result)
         self._calculator_repository.add_calculation(result)
 
+    def reset(self):
+        """Resetoi luokan muuttujat ja tyhjentää entryn"""
+        self._error_message = False
+        self._left_bracket = 0
+        self._right_bracket = 0
+        self._entry.delete(0, 'end')
 
     def __str__(self):
         """Palauttaa laskimen näytön tämän hetkisen tilan"""
         return self._entry.get()
+
