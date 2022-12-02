@@ -17,7 +17,6 @@ class CalculatorRepository:
         db = self._connection.cursor()
         db.execute("SELECT * FROM Calculations")
         rows = db.fetchall()
-        print(rows)
         return rows
 
     def delete_calculations(self):

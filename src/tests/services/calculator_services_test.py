@@ -1,7 +1,7 @@
 import unittest
 from tkinter import Tk, ttk
 from services.calculator_service import CalculatorService
-from entities.calculation import calculation
+from entities.calculation_manager import calculation_manager
 
 
 class TestCalculatorServices(unittest.TestCase):
@@ -10,8 +10,8 @@ class TestCalculatorServices(unittest.TestCase):
         self._frame = ttk.Frame(master=self._root)
         entry = ttk.Entry(self._frame)
         self.calculator = CalculatorService(entry)
-        self.calculation = calculation
-        self.calculation.delete()
+        self.calculation_manager = calculation_manager
+        self.calculation_manager.delete()
 
     """Testaa CalculationServices-luokan toimivuutta"""
 
