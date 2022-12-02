@@ -23,3 +23,5 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Testit toimii muutosten jälkeen
 - Erotin osan testeistä testaamaan Calculation-luokkaa
 - Lisäsin testejä
+- Loin HistoryView-luokan
+- MenubarService-luokka on nyt toiminnassa

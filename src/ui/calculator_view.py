@@ -1,13 +1,15 @@
 from tkinter import ttk, constants
 from tkinter import *
-from services.calculator_services import CalculatorServices
-from services.menubar_service import MenubarServices
+from services.calculator_service import CalculatorService
+from services.menubar_service import MenubarService
+from services.about_service import about_service as default_about_service
 
 
 class CalculatorView:
     """Laskimen näkymä"""
 
-    def __init__(self, root):
+    def __init__(self, root,
+                 about_service = default_about_service):
         """
         Luokan konstruktori. Luo uuden laskin näkymän.
 
@@ -19,6 +21,7 @@ class CalculatorView:
         self._frame = None
         self._calculator = None
         self._menubar = None
+        self._about_service = about_service
         self._initialize()
 
     def pack(self):
@@ -114,21 +117,19 @@ class CalculatorView:
         """Muodostaa käyttöliittymän menun"""
         menubar = Menu(self._root)
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="New", command=self._menubar.create_new())
-        filemenu.add_command(label="Open", command=print("toimii"))
-        filemenu.add_command(label="Save", command=print("toimii"))
+        filemenu.add_command(label="New", command=lambda: self._menubar.create_new())
         filemenu.add_separator()
         filemenu.add_command(label="Exit", command=self._root.quit)
         menubar.add_cascade(label="File", menu=filemenu)
 
         historymenu = Menu(menubar, tearoff=0)
-        historymenu.add_command(label="Show history", command=print("toimii"))
+        historymenu.add_command(label="Show history", command=lambda: self._menubar.show_history())
         historymenu.add_command(label="Delete history",
-                                command=print("toimii"))
+                                command=lambda: self._menubar.delete_history())
         menubar.add_cascade(label="History", menu=historymenu)
 
         helpmenu = Menu(menubar, tearoff=0)
-        helpmenu.add_command(label="About...", command=print("toimii"))
+        helpmenu.add_command(label="About...", command=lambda: self._about_service.initialize_about_view())
         menubar.add_cascade(label="Help", menu=helpmenu)
 
         self._root.config(menu=menubar)
@@ -139,7 +140,7 @@ class CalculatorView:
         self._frame = ttk.Frame(master=self._root)
         entry = ttk.Entry(self._frame)
         entry.grid(row=0, column=0, ipadx=90, columnspan=5, padx=10, pady=10)
-        self._calculator = CalculatorServices(entry)
-        self._menubar = MenubarServices(entry)
+        self._calculator = CalculatorService(entry)
+        self._menubar = MenubarService(entry)
         self._initialize_buttons()
         self._initialize_menu()
