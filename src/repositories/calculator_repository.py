@@ -22,7 +22,7 @@ class CalculatorRepository:
 
     def delete_calculations(self):
         db = self._connection.cursor()
-        db.execute("DROP TABLE IF EXISTS Calculations")
+        db.execute("DELETE FROM Calculations")
 
 
 calculator_repository = CalculatorRepository(get_database_connection())

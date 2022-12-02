@@ -6,5 +6,6 @@ class AboutService:
         
     def initialize_about_view(self):
         self._about_view.show_about_view()
+        self._about_view.print_info()
     
 about_service = AboutService()
