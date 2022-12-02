@@ -30,6 +30,6 @@ class MenubarService:
 
     def delete_history(self):
         self._calculator_repository.delete_calculations()
-        
+
     def show_history(self):
         self._history_view.open_history_window()

@@ -12,4 +12,5 @@
 | 24.11 | 5    | CalculatorRepository luokka ja tietokantaan lisäys valmiina. Kamppailu AttributeErrorin kanssa |
 | 29.11 | 8    | Kaikenlaista kokeilua. Menubarin luonti ja Calculation-luokka lisätty, jota käytetään tallentamaan laskutoimitus |
 | 30.11 | 5    | Erotin ja korjasin Calculation ja CalculationServices-luokkien testit |
-| yht.  | 48   | |
+| 01.12 | 5    | MenubarService-luokka on nyt toiminnassa, Loin HistoryView-luokan ja muokkasin koodia monesta eri kohtaa, jotta kaikki toimii |
+| yht.  | 53   | |

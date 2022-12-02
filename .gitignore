@@ -5,5 +5,4 @@ htmlcov
 .vscode
 /src/data/
 /src/tests/test-database.sqlite
-/laskarit
 /data

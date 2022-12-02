@@ -2,12 +2,14 @@ from tkinter import ttk, constants
 from tkinter import *
 from services.calculator_service import CalculatorService
 from services.menubar_service import MenubarService
+from services.about_service import about_service as default_about_service
 
 
 class CalculatorView:
     """Laskimen näkymä"""
 
-    def __init__(self, root):
+    def __init__(self, root,
+                 about_service = default_about_service):
         """
         Luokan konstruktori. Luo uuden laskin näkymän.
 
@@ -19,6 +21,7 @@ class CalculatorView:
         self._frame = None
         self._calculator = None
         self._menubar = None
+        self._about_service = about_service
         self._initialize()
 
     def pack(self):
@@ -126,7 +129,7 @@ class CalculatorView:
         menubar.add_cascade(label="History", menu=historymenu)
 
         helpmenu = Menu(menubar, tearoff=0)
-        helpmenu.add_command(label="About...", command=print("toimii"))
+        helpmenu.add_command(label="About...", command=lambda: self._about_service.initialize_about_view())
         menubar.add_cascade(label="Help", menu=helpmenu)
 
         self._root.config(menu=menubar)
