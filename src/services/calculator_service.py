@@ -228,7 +228,7 @@ class CalculatorService:
 
         self._entry.insert(0, result)
         self._calculator_repository.add_calculation(f"{self._calculation.return_input()}={result}")
-        print(f"{self._calculation.return_input()}={result}")
+
 
     def reset(self):
         """Resetoi luokan muuttujat ja tyhjentää entryn"""
