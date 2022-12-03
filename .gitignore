@@ -3,6 +3,7 @@ __pycache__
 .coverage
 htmlcov
 .vscode
-/src/data/
-/src/tests/test-database.sqlite
 /data
+/src/data/
+/src/data/test-database.sqlite
+/src/tests/test-database.sqlite

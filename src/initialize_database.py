@@ -18,7 +18,7 @@ def create_tables(connection):
         create table Calculations (
             ID PRIMERY KEY,
             calculation TEXT,
-            timestamp DATE
+            timestamp TEXT
         );
     ''')
 

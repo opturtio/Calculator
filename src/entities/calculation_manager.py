@@ -1,4 +1,4 @@
-class Calculation:
+class CalculationManager:
     def __init__(self, calculation):
         self._calculation = calculation
     
@@ -27,4 +27,4 @@ class Calculation:
         self._calculation = self._calculation[:-1]
 
 
-calculation = Calculation("")
+calculation_manager = CalculationManager("")

@@ -1,8 +1,8 @@
 from repositories.calculator_repository import (
     calculator_repository as default_calculator_repository
 )
-from entities.calculation import (
-    calculation as default_calculation
+from entities.calculation_manager import (
+    calculation_manager as default_calculation
 )
 
 
@@ -227,7 +227,8 @@ class CalculatorService:
         result = eval(self._calculation.return_input())
 
         self._entry.insert(0, result)
-        self._calculator_repository.add_calculation(result)
+        self._calculator_repository.add_calculation(f"{self._calculation.return_input()}={result}")
+
 
     def reset(self):
         """Resetoi luokan muuttujat ja tyhjentää entryn"""

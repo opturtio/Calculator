@@ -3,8 +3,8 @@ from services.calculator_service import CalculatorService
 from repositories.calculator_repository import (
     calculator_repository as default_calculator_repository
 )
-from entities.calculation import (
-    calculation as default_calculation
+from entities.calculation_manager import (
+    calculation_manager as default_calculation
 )
 from ui.history_view import (
     history_view as default_history_view
@@ -33,3 +33,5 @@ class MenubarService:
 
     def show_history(self):
         self._history_view.open_history_window()
+        self._history_view.create_history_list()
+

@@ -25,3 +25,5 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Lisäsin testejä
 - Loin HistoryView-luokan
 - MenubarService-luokka on nyt toiminnassa
+- About tehty suurimmaksi osaksi
+- Historyn tekemistä
