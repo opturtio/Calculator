@@ -18,6 +18,18 @@ Riippuvuuksien asennus:
 poetry install
 ```
 
+Käynnistä virtuaaliympäristö(tarvitset sitä ajaaksesi invoke komennot):
+
+```bash
+poetry shell
+```
+
+Alusta tietokanta:
+
+```bash
+poetry run invoke build
+```
+
 ## Komentorivitoiminnot
 
 #### Ohjelman suorittaminen
