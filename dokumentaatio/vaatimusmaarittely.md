@@ -16,11 +16,12 @@ Käyttöliittymään ei ainakaan vielä tarvitse kirjautua. Laskinta voi alkaa k
 
 - Ohjelman käynnistyessä latautuu laskin näkymä
 - Historia painiketta painamalla näkyy menneet laskutoimitukset tai laskutoimitukset kirjautuvat suoraan laskimen näkymään
-- Laskutoimitukset kirjautuvat tietokantaan
+- Laskutoimitukset kirjautuvat tietokantaan ja ne voi poistaa
 - Laskimella voi tehdä yhteen- vähennys- jako- ja kertolaskuja
 - Laskimessa voi käyttää sulkeita
 - Laskutoimituksen voi poistaa tai sitä voi korjata pyyhkimällä viimeisin syöte
 - Laskimella voi laskea kokonais- tai liukulukuja
+- Käyttäjä voi aloittaa kaiken alusta valitsemalla new
 
 ## Jatkokehitys ideat
 

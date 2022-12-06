@@ -82,13 +82,12 @@ class CalculatorService:
         self._check_error_message()
         if self._calculation.length() > 0:
             if self._calculation.return_last() == ")":
-                self._handle_number_after_right_bracket_error() #FIXME tämä ei tee mitään
+                self._handle_number_after_right_bracket_error()  # FIXME tämä ei tee mitään
                 return
 
         self._calculation.add_sign(str(number))
         self._entry.delete(0, 'end')
         self._entry.insert(0, self._calculation.return_input())
-
 
     def _button_click_add(self):
         """Lisää plusmerkin merkkijonoon"""
@@ -102,7 +101,6 @@ class CalculatorService:
         self._calculation.add_sign("+")
         self._entry.insert(0, self._calculation.return_input())
 
-
     def _button_click_sub(self):
         """Lisää miinusmerkin merkkijonoon"""
 
@@ -115,7 +113,6 @@ class CalculatorService:
         self._calculation.add_sign("-")
         self._entry.insert(0, self._calculation.return_input())
 
-
     def _button_click_mul(self):
         """Lisää kertomerkin merkkijonoon"""
         self._check_error_message()
@@ -126,7 +123,6 @@ class CalculatorService:
         self._entry.delete(0, 'end')
         self._calculation.add_sign("*")
         self._entry.insert(0, self._calculation.return_input())
-
 
     def _button_click_div(self):
         """Lisää jakomerkin merkkijonoon"""
@@ -139,7 +135,6 @@ class CalculatorService:
         self._calculation.add_sign("/")
         self._entry.insert(0, self._calculation.return_input())
 
-
     def _button_click_point(self):
         """Lisää pisteen merkkijonoon"""
         self._check_error_message()
@@ -151,7 +146,6 @@ class CalculatorService:
         self._entry.delete(0, 'end')
         self._calculation.add_sign(".")
         self._entry.insert(0, self._calculation.return_input())
-
 
     def _button_left_bracket(self):
         """Lisää vasemman sulkeen"""
@@ -171,7 +165,6 @@ class CalculatorService:
         self._calculation.add_sign("(")
         self._left_bracket += 1
         self._entry.insert(0, self._calculation.return_input())
-
 
     def _button_right_bracket(self):
         """Lisää oikean sulkeen"""
@@ -193,7 +186,6 @@ class CalculatorService:
         self._calculation.add_sign(")")
         self._entry.insert(0, self._calculation.return_input())
 
-
     def _button_click_clear(self):
         """Poistaa koko syötetyn merkkijonon"""
         self._check_error_message()
@@ -202,8 +194,7 @@ class CalculatorService:
         self._left_bracket = 0
         self._right_bracket = 0
 
-
-    def _button_click_clear_entry(self): #FIXME
+    def _button_click_clear_entry(self):  # FIXME
         """Poistaa yhden merkin"""
         self._check_error_message()
 
@@ -214,7 +205,6 @@ class CalculatorService:
             self._right_bracket -= 1
         self._calculation.delete_last()
         self._entry.insert(0, self._calculation.return_input())
-
 
     def _button_click_equal(self):
         """Tulostaa vastauksen ja lähettää laskutoimituksen tallennettavaksi tietokantaan"""
@@ -227,8 +217,8 @@ class CalculatorService:
         result = eval(self._calculation.return_input())
 
         self._entry.insert(0, result)
-        self._calculator_repository.add_calculation(f"{self._calculation.return_input()}={result}")
-
+        self._calculator_repository.add_calculation(
+            f"{self._calculation.return_input()}={result}")
 
     def reset(self):
         """Resetoi luokan muuttujat ja tyhjentää entryn"""
@@ -240,4 +230,3 @@ class CalculatorService:
     def __str__(self):
         """Palauttaa laskimen näytön tämän hetkisen tilan"""
         return self._entry.get()
-

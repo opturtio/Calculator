@@ -13,7 +13,7 @@ from ui.history_view import (
 
 class MenubarService:
     def __init__(self, entry,
-                 calculation = default_calculation,
+                 calculation=default_calculation,
                  calculator_repository=default_calculator_repository,
                  history_view=default_history_view):
 
@@ -34,4 +34,3 @@ class MenubarService:
     def show_history(self):
         self._history_view.open_history_window()
         self._history_view.create_history_list()
-

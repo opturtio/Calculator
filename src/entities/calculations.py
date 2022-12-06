@@ -1,5 +1,3 @@
-
-
 class Calculations:
     def __init__(self, calculation, timestamp):
         self._calculation = calculation
@@ -12,4 +10,3 @@ class Calculations:
 
     def fetch_timestamp(self):
         return self._timestamp
-

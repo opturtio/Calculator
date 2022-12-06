@@ -1,6 +1,7 @@
-from database_connection import get_database_connection
 from datetime import datetime
+from database_connection import get_database_connection
 from entities.calculations import Calculations
+
 
 class CalculatorRepository:
     def __init__(self, connection):
@@ -10,20 +11,23 @@ class CalculatorRepository:
         current_time = datetime.now()
         timestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
 
-        db = self._connection.cursor()
-        db.execute("INSERT INTO Calculations (calculation, timestamp) VALUES (?, ?)", [
-                   calculation, timestamp])
+        cursor = self._connection.cursor()
+        cursor.execute("INSERT INTO Calculations (calculation, timestamp) VALUES (?, ?)", (
+            calculation, timestamp))
+        self._connection.commit()
 
     def list_calculations(self):
-        db = self._connection.cursor()
-        db.execute("SELECT * FROM Calculations")
-        rows = db.fetchall()
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Calculations")
+        rows = cursor.fetchall()
+        self._connection.commit()
 
         return [Calculations(row["calculation"], row["timestamp"]) for row in rows]
 
     def delete_calculations(self):
-        db = self._connection.cursor()
-        db.execute("DELETE FROM Calculations")
+        cursor = self._connection.cursor()
+        cursor.execute("DELETE FROM Calculations")
+        self._connection.commit()
 
 
 calculator_repository = CalculatorRepository(get_database_connection())

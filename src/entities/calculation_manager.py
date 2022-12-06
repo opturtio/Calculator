@@ -1,13 +1,13 @@
 class CalculationManager:
     def __init__(self, calculation):
         self._calculation = calculation
-    
+
     def add_sign(self, sign):
         self._calculation += sign
-        
+
     def length(self):
         return len(self._calculation)
-    
+
     def return_calculation(self):
         return self._calculation
 

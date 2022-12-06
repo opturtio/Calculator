@@ -14,4 +14,5 @@
 | 30.11 | 5    | Erotin ja korjasin Calculation ja CalculationServices-luokkien testit |
 | 01.12 | 5    | MenubarService-luokka on nyt toiminnassa, Loin HistoryView-luokan ja muokkasin koodia monesta eri kohtaa, jotta kaikki toimii |
 | 02.12 | 6    | Koitin saada tehtyä valmiiksi history ja about napit |
-| yht.  | 59   | |
+| 03.12 | 6    | Tein HistoryViewin valmiiksi. Sovellus tulosti laskutoimitukset history nappia painaessa. Unohdin committaa/tallentaa ja kaikki on kadonnut. Pitää tehdä uudestaan :( |
+| yht.  | 65   | |

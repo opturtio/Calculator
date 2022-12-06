@@ -9,7 +9,7 @@ class CalculatorView:
     """Laskimen näkymä"""
 
     def __init__(self, root,
-                 about_service = default_about_service):
+                 about_service=default_about_service):
         """
         Luokan konstruktori. Luo uuden laskin näkymän.
 
@@ -117,23 +117,25 @@ class CalculatorView:
         """Muodostaa käyttöliittymän menun"""
         menubar = Menu(self._root)
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="New", command=lambda: self._menubar.create_new())
+        filemenu.add_command(
+            label="New", command=lambda: self._menubar.create_new())
         filemenu.add_separator()
         filemenu.add_command(label="Exit", command=self._root.quit)
         menubar.add_cascade(label="File", menu=filemenu)
 
         historymenu = Menu(menubar, tearoff=0)
-        historymenu.add_command(label="Show history", command=lambda: self._menubar.show_history())
+        historymenu.add_command(label="Show history",
+                                command=lambda: self._menubar.show_history())
         historymenu.add_command(label="Delete history",
                                 command=lambda: self._menubar.delete_history())
         menubar.add_cascade(label="History", menu=historymenu)
 
         helpmenu = Menu(menubar, tearoff=0)
-        helpmenu.add_command(label="About...", command=lambda: self._about_service.initialize_about_view())
+        helpmenu.add_command(
+            label="About...", command=lambda: self._about_service.initialize_about_view())
         menubar.add_cascade(label="Help", menu=helpmenu)
 
         self._root.config(menu=menubar)
-
 
     def _initialize(self):
         """Alustaa laskimen näkymän"""

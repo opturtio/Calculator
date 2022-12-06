@@ -27,3 +27,5 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - MenubarService-luokka on nyt toiminnassa
 - About tehty suurimmaksi osaksi
 - Historyn tekemistä
+- About melkein valmis vain kuva puuttuu
+- Tietokanta korjattu toistamiseen loppu viikosta pitää rakentaa HistoryView uudestaan
