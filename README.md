@@ -18,7 +18,7 @@ Riippuvuuksien asennus:
 poetry install
 ```
 
-Käynnistä virtuaaliympäristö(tarvitset sitä ajaaksesi invoke komennot):
+Käynnistä virtuaaliympäristö:
 
 ```bash
 poetry shell
