@@ -30,5 +30,5 @@ class CalculatorRepository:
         self._connection.commit()
 
 
-calculator_repository = CalculatorRepository(get_database_connection())
-calculations = calculator_repository.list_calculations()
+calculator_repository = CalculatorRepository(get_database_connection()) # pylint: disable=invalid-name
+calculations = calculator_repository.list_calculations() # pylint: disable=invalid-name

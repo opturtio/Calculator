@@ -2,10 +2,10 @@ from services.calculator_service import CalculatorService
 
 from repositories.calculator_repository import (
     calculator_repository as default_calculator_repository
-)
+) #pylint: disable=duplicate-code
 from entities.calculation_manager import (
     calculation_manager as default_calculation
-)
+) #pylint: disable=duplicate-code
 from ui.history_view import (
     history_view as default_history_view
 )
