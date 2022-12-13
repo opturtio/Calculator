@@ -29,3 +29,8 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Historyn tekemistä
 - About melkein valmis vain kuva puuttuu
 - Tietokanta korjattu toistamiseen loppu viikosta pitää rakentaa HistoryView uudestaan
+
+## Viikko 6
+
+- Show history toimii nyt. Vanhat laskutoimitukset voi nähdä nyt uudessa ikkunassa
+- Kamppailua kuvan saamiseksi pythoniin. Ilmeisesti PIL ei enää toimi pythonissa

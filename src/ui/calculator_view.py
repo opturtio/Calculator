@@ -16,6 +16,8 @@ class CalculatorView:
         Args:
             root:
                 TKinter-elementti, jonka sisään näkymä alustetaan
+            about_service:
+                About-valikon sovelluslogiikasta vastaava luokka
         """
         self._root = root
         self._frame = None
@@ -115,6 +117,7 @@ class CalculatorView:
 
     def _initialize_menu(self):
         """Muodostaa käyttöliittymän menun"""
+
         menubar = Menu(self._root)
         filemenu = Menu(menubar, tearoff=0)
         filemenu.add_command(
@@ -123,12 +126,14 @@ class CalculatorView:
         filemenu.add_command(label="Exit", command=self._root.quit)
         menubar.add_cascade(label="File", menu=filemenu)
 
+
         historymenu = Menu(menubar, tearoff=0)
         historymenu.add_command(label="Show history",
                                 command=lambda: self._menubar.show_history())
         historymenu.add_command(label="Delete history",
                                 command=lambda: self._menubar.delete_history())
         menubar.add_cascade(label="History", menu=historymenu)
+
 
         helpmenu = Menu(menubar, tearoff=0)
         helpmenu.add_command(
@@ -142,7 +147,9 @@ class CalculatorView:
         self._frame = ttk.Frame(master=self._root)
         entry = ttk.Entry(self._frame)
         entry.grid(row=0, column=0, ipadx=90, columnspan=5, padx=10, pady=10)
+
         self._calculator = CalculatorService(entry)
         self._menubar = MenubarService(entry)
+
         self._initialize_buttons()
         self._initialize_menu()

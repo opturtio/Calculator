@@ -40,32 +40,31 @@ class CalculatorService:
         if sign in self._signs_and_symbols:
             self._error_message = True
             self._entry.delete(0, 'end')
-            self._entry.insert(
-                0, f"You cannot enter two signs/symbols in a row")
+            self._entry.insert(0, "You cannot enter two signs/symbols in a row")
 
     def _handle_two_points_error(self):
         """Hoitaa kahden pisteen virheen"""
         self._error_message = True
         self._entry.delete(0, 'end')
-        self._entry.insert(0, f"You cannot have to points in a number")
+        self._entry.insert(0, "You cannot have to points in a number")
 
     def _handle_left_bracket_error(self):
         """Hoitaa vasemman sulkeen virheen"""
         self._error_message = True
         self._entry.delete(0, 'end')
-        self._entry.insert(0, f"You have to enter sign before bracket")
+        self._entry.insert(0, "You have to enter sign before bracket")
 
     def _handle_number_after_right_bracket_error(self):
         """Hoitaa numeron oikean sulkeen virheen jälkeen"""
         self._error_message = True
         self._entry.delete(0, 'end')
-        self._entry.insert(0, f"You have to enter sign after bracket")
+        self._entry.insert(0, "You have to enter sign after bracket")
 
     def _handle_right_bracket_error(self):
         """Hoitaa oikean sulkeen virheen"""
         self._error_message = True
         self._entry.delete(0, 'end')
-        self._entry.insert(0, f"You need to enter left bracket first")
+        self._entry.insert(0, "You need to enter left bracket first")
 
     def _handle_equal_error(self):
         """Hoitaa laskutoimituksen virheen"""

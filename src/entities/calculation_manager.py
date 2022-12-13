@@ -27,4 +27,4 @@ class CalculationManager:
         self._calculation = self._calculation[:-1]
 
 
-calculation_manager = CalculationManager("") # pylint: disable=invalid-name
+calculation_manager = CalculationManager("")  # pylint: disable=invalid-name

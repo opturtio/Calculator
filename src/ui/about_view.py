@@ -1,5 +1,4 @@
 from tkinter import *
-import sys # to access the system
 import cv2
 
 def create_image(path, resize=False):
@@ -10,11 +9,11 @@ def create_image(path, resize=False):
 
 
 class AboutView:
-    """About näkymä"""
+    """Muodostaa about näkymän"""
 
     def __init__(self):
         self._about_window = None
-        self._calculator_image = create_image('./src/assets/calculator2.png')
+        self._calculator_image = create_image('./src/assets/calculator2.png') # TODO kuvan saaminen pythoniin on todella vaikeaa :D
 
     def show_about_view(self):
         self._about_window = Toplevel()

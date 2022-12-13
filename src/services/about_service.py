@@ -10,4 +10,4 @@ class AboutService:
         self._about_view.print_info()
 
 
-about_service = AboutService() # pylint: disable=invalid-name
+about_service = AboutService()  # pylint: disable=invalid-name
