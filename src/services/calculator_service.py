@@ -40,7 +40,8 @@ class CalculatorService:
         if sign in self._signs_and_symbols:
             self._error_message = True
             self._entry.delete(0, 'end')
-            self._entry.insert(0, "You cannot enter two signs/symbols in a row")
+            self._entry.insert(
+                0, "You cannot enter two signs/symbols in a row")
 
     def _handle_two_points_error(self):
         """Hoitaa kahden pisteen virheen"""

@@ -14,6 +14,7 @@ class CalculatorRepository:
     def __init__(self, connection):
         self._connection = connection
 
+
     def add_calculation(self, calculation):
         """Lisää laskutoimituksen tietokantaan
 
@@ -29,6 +30,7 @@ class CalculatorRepository:
             calculation, timestamp))
         self._connection.commit()
 
+
     def list_calculations(self):
         """
         Muodostaa Calculations-olion ja palauttaa sen
@@ -39,6 +41,7 @@ class CalculatorRepository:
         self._connection.commit()
 
         return [Calculations(row["calculation"], row["timestamp"]) for row in rows]
+
 
     def delete_calculations(self):
         """

@@ -13,7 +13,7 @@ from ui.history_view import (
 
 class MenubarService:
     """
-    Hoitaa menubar-valikkoon liittyvän logiikan
+    Hoitaa menubar-valikkoon liittyvän sovelluslogiikan
 
     Attributes:
         entry: Ottaa vastaan käyttäjän antamat syötteet
@@ -33,17 +33,22 @@ class MenubarService:
         self._calculator_repository = calculator_repository
         self._history_view = history_view
 
+
     def create_new(self):
         """Nollaa laskimen"""
         self._calculator_repository.delete_calculations()
         self._calculator_service.reset()
         self._calculation.delete()
 
+
     def delete_history(self):
         """Tyhjentää tietokannan"""
         self._calculator_repository.delete_calculations()
 
+
     def show_history(self):
         """Muodostaa historia näkymän"""
         self._history_view.open_history_window()
+        self._history_view.create_scrollbar_and_listbox()
+        self._history_view.create_buttons()
         self._history_view.create_history_list()

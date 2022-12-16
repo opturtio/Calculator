@@ -34,3 +34,8 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 
 - Show history toimii nyt. Vanhat laskutoimitukset voi nähdä nyt uudessa ikkunassa
 - Kamppailua kuvan saamiseksi pythoniin. Ilmeisesti PIL ei enää toimi pythonissa
+
+## Viikko 7
+
+- Historia näkymän parantelu esim. nappien select ja delete luonti
+- HistoryService luokan luonti, joka hoitaa historia näkymän sovelluslogiikan
