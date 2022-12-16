@@ -26,14 +26,36 @@ class HistoryView:
         self._label_one = Label(self._history_window, text="The history of the Calculations").pack()
 
 
-    def create_scrollbar_and_listbox(self):
+    def create_scrollbar(self):
         """
-        Alustaa listboxin ja luo scrollauksen
+        Luo scrollauksen listboxiin
         """
         self._height_scrollbar = Scrollbar(self._history_window, orient="vertical")
         self._width_scrollbar = Scrollbar(self._history_window, orient="horizontal")
-        self._listbox = Listbox(self._history_window, bg="white", width=70, height=25, yscrollcommand=self._height_scrollbar.set, xscrollcommand=self._width_scrollbar.set, selectmode="SINGLE")
 
+
+    def create_history_list(self):
+        """
+        Tulostaa laskutoimitusten historian
+        """
+        choices = [f"{calc.fetch_timestamp()}: {calc.fetch_calculation()}" for calc in self._calculation_repository.list_calculations()]
+        choicesvar = StringVar(value=choices)
+        self._listbox = Listbox(self._history_window,
+                                listvariable=choicesvar,
+                                bg="white",
+                                highlightcolor="blue",
+                                selectbackground="cyan2",
+                                width=70,
+                                height=25,
+                                yscrollcommand=self._height_scrollbar.set,
+                                xscrollcommand=self._width_scrollbar.set,
+                                selectmode=SINGLE)
+
+
+    def config_scrollbar(self):
+        """
+        Konfiguroi scrollbarin ja listboxin
+        """
         self._height_scrollbar.config(command=self._listbox.yview)
         self._height_scrollbar.pack(side=RIGHT, fill=Y)
 
@@ -49,16 +71,13 @@ class HistoryView:
         Select-nappi: Valitsee valitun laskutoimituksen ja korvaa sillä nykyisen
         Delete-nappi: Poistaa laskutoimituksen
         """
-        self._select_button = Button(self._history_window, text="Select", command=print("select_nappi toimii")).pack(side=BOTTOM, pady=5)
-        self._delete_button = Button(self._history_window, text="Delete", command=print("delete_button toimii")).pack(side=BOTTOM, pady=10)
+        self._select_button = Button(self._history_window, text="Select",
+                                     command=lambda: self._history_service.replace_current_calculation_with_selected(self._listbox))
+        self._delete_button = Button(self._history_window, text="Delete",
+                                     command=lambda: self._history_service.delete_calculation_from_history_view(self._listbox))
 
-
-    def create_history_list(self):
-        """
-        Tulostaa listan aikaisemmista laskutoimituksista
-        """
-        for calc in self._calculation_repository.list_calculations():
-            self._listbox.insert("end", f"{calc.fetch_timestamp()}: {calc.fetch_calculation()}")
+        self._delete_button.pack(side=BOTTOM, pady=10)
+        self._select_button.pack(side=BOTTOM, pady=10)
 
 
 
