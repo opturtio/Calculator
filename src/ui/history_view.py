@@ -15,7 +15,6 @@ class HistoryView:
         self._calculation_repository = calculation_repository
         self._history_service = history_service
 
-
     def open_history_window(self):
         """
         Alustaa Historia-ikkunan näkymän
@@ -23,22 +22,24 @@ class HistoryView:
         self._history_window = Toplevel()
         self._history_window.title("History")
         self._history_window.geometry("600x600")
-        self._label_one = Label(self._history_window, text="The history of the Calculations").pack()
-
+        self._label_one = Label(self._history_window,
+                                text="The history of the Calculations").pack()
 
     def create_scrollbar(self):
         """
         Luo scrollauksen listboxiin
         """
-        self._height_scrollbar = Scrollbar(self._history_window, orient="vertical")
-        self._width_scrollbar = Scrollbar(self._history_window, orient="horizontal")
-
+        self._height_scrollbar = Scrollbar(
+            self._history_window, orient="vertical")
+        self._width_scrollbar = Scrollbar(
+            self._history_window, orient="horizontal")
 
     def create_history_list(self):
         """
         Tulostaa laskutoimitusten historian
         """
-        choices = [f"{calc.fetch_timestamp()}: {calc.fetch_calculation()}" for calc in self._calculation_repository.list_calculations()]
+        choices = [
+            f"{calc.fetch_timestamp()}: {calc.fetch_calculation()}" for calc in self._calculation_repository.list_calculations()]
         choicesvar = StringVar(value=choices)
         self._listbox = Listbox(self._history_window,
                                 listvariable=choicesvar,
@@ -51,7 +52,6 @@ class HistoryView:
                                 xscrollcommand=self._width_scrollbar.set,
                                 selectmode=SINGLE)
 
-
     def config_scrollbar(self):
         """
         Konfiguroi scrollbarin ja listboxin
@@ -63,7 +63,6 @@ class HistoryView:
         self._width_scrollbar.pack(side=BOTTOM, fill=X)
 
         self._listbox.pack()
-
 
     def create_buttons(self):
         """
@@ -78,7 +77,6 @@ class HistoryView:
 
         self._delete_button.pack(side=BOTTOM, pady=10)
         self._select_button.pack(side=BOTTOM, pady=10)
-
 
 
 history_view = HistoryView()

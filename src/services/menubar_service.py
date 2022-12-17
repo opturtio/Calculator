@@ -33,18 +33,15 @@ class MenubarService:
         self._calculator_repository = calculator_repository
         self._history_view = history_view
 
-
     def create_new(self):
         """Nollaa laskimen"""
         self._calculator_repository.delete_calculations()
         self._calculator_service.reset()
         self._calculation.delete()
 
-
     def delete_history(self):
         """Tyhjentää tietokannan"""
         self._calculator_repository.delete_calculations()
-
 
     def show_history(self):
         """Muodostaa historia näkymän"""

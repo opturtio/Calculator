@@ -5,6 +5,10 @@ class CalculationManager:
     def add_sign(self, sign):
         self._calculation += sign
 
+    def insert_calculation(self, calculation):
+        self._calculation = ""
+        self._calculation = calculation
+
     def length(self):
         return len(self._calculation)
 

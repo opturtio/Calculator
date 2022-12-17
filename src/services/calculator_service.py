@@ -227,6 +227,11 @@ class CalculatorService:
         self._right_bracket = 0
         self._entry.delete(0, 'end')
 
+#    def insertt(self):
+#        """Toiset luokat voivat käyttää tätä metodia tulostamaan tietoa näytölle"""
+#        self._entry.delete(0, 'end')
+#        self._entry.insert(0, self._calculation.return_input())
+
     def __str__(self):
         """Palauttaa laskimen näytön tämän hetkisen tilan"""
         return self._entry.get()
