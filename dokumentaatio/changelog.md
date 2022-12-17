@@ -41,3 +41,5 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - HistoryService luokan luonti, joka hoitaa historia näkymän sovelluslogiikan
 - Koitin rakentaa EntryManager-luokkaa. Kompastuskiveksi muodostoi riippuvuudet. Luokka oli todella vaikea luoda tässä vaihteessa projektia. Poistin luokan.
 - Historia näkymä toimii. Delete nappi toistaa valitun laskutoimituksen. Select-napin kanssa ongelmia.
+- Kaiken taistelun jälkeen vihdoinkin kuva lisätty About-näkymään!
+- Testikattavuutta lisätty
