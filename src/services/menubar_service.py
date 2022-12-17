@@ -13,7 +13,7 @@ from ui.history_view import (
 
 class MenubarService:
     """
-    Hoitaa menubar-valikkoon liittyvän logiikan
+    Hoitaa menubar-valikkoon liittyvän sovelluslogiikan
 
     Attributes:
         entry: Ottaa vastaan käyttäjän antamat syötteet
@@ -46,4 +46,7 @@ class MenubarService:
     def show_history(self):
         """Muodostaa historia näkymän"""
         self._history_view.open_history_window()
+        self._history_view.create_scrollbar()
         self._history_view.create_history_list()
+        self._history_view.config_scrollbar()
+        self._history_view.create_buttons()

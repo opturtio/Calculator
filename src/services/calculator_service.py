@@ -7,12 +7,18 @@ from entities.calculation_manager import (
 
 
 class CalculatorService:
-    """Luokka hoitaa laskimen toiminnot"""
+    """
+    Luokka hoitaa laskimen toiminnot
 
-    def __init__(self, entry, calculator_repository=default_calculator_repository,
+    Attributes:
+        entry:
+            TKinter-elementti, jonka sisään näkymä alustetaan
+    """
+
+    def __init__(self, entry=None, calculator_repository=default_calculator_repository,
                  calculation=default_calculation):
         """
-        Konstruktori
+        Luokan konstruktori, jossa on kaikki tarvittava laskutoimituksien tekemiseen.
 
         Args:
             entry:
@@ -40,7 +46,8 @@ class CalculatorService:
         if sign in self._signs_and_symbols:
             self._error_message = True
             self._entry.delete(0, 'end')
-            self._entry.insert(0, "You cannot enter two signs/symbols in a row")
+            self._entry.insert(
+                0, "You cannot enter two signs/symbols in a row")
 
     def _handle_two_points_error(self):
         """Hoitaa kahden pisteen virheen"""

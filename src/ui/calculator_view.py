@@ -126,14 +126,12 @@ class CalculatorView:
         filemenu.add_command(label="Exit", command=self._root.quit)
         menubar.add_cascade(label="File", menu=filemenu)
 
-
         historymenu = Menu(menubar, tearoff=0)
         historymenu.add_command(label="Show history",
                                 command=lambda: self._menubar.show_history())
         historymenu.add_command(label="Delete history",
                                 command=lambda: self._menubar.delete_history())
         menubar.add_cascade(label="History", menu=historymenu)
-
 
         helpmenu = Menu(menubar, tearoff=0)
         helpmenu.add_command(

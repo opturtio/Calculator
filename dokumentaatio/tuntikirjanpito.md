@@ -16,4 +16,6 @@
 | 02.12 | 6    | Koitin saada tehtyä valmiiksi history ja about napit |
 | 03.12 | 6    | Tein HistoryViewin valmiiksi. Sovellus tulosti laskutoimitukset history nappia painaessa. Unohdin committaa/tallentaa ja kaikki on kadonnut. Pitää tehdä uudestaan :( |
 | 13.12 | 5    | Sain show historyn toimimaan |
-| yht.  | 70   | |
+| 16.12 | 5    | Historia valikosta voi valita laskutoimituksia. HistoryView-luokka on nyt helppolukuinen. Select ja Delete näppäimet tulostavat nyt valinnat |
+| 17.12 | 4    | Historia näkymä toimii lähes täysin. Taas riippuvuudet ongelmana. Käyttäjä saa vaihdettua laskutoimituksen mutta se ei päivity heti näytölle. Pitää painaa jotain numeroa tai laskutoimituksen symbolia, jotta laskutoimitus näkyy. |
+| yht.  | 79   | |

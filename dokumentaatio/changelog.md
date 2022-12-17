@@ -34,3 +34,10 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 
 - Show history toimii nyt. Vanhat laskutoimitukset voi nähdä nyt uudessa ikkunassa
 - Kamppailua kuvan saamiseksi pythoniin. Ilmeisesti PIL ei enää toimi pythonissa
+
+## Viikko 7
+
+- Historia näkymän parantelu esim. nappien select ja delete luonti
+- HistoryService luokan luonti, joka hoitaa historia näkymän sovelluslogiikan
+- Koitin rakentaa EntryManager-luokkaa. Kompastuskiveksi muodostoi riippuvuudet. Luokka oli todella vaikea luoda tässä vaihteessa projektia. Poistin luokan.
+- Historia näkymä toimii. Delete nappi toistaa valitun laskutoimituksen. Select-napin kanssa ongelmia.
