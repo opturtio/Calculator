@@ -66,7 +66,7 @@ class HistoryView:
 
     def create_buttons(self):
         """
-        Tulostaa napit select ja delete.
+        Tulostaa napit Select ja Delete.
         Select-nappi: Valitsee valitun laskutoimituksen ja korvaa sillä nykyisen
         Delete-nappi: Poistaa laskutoimituksen
         """

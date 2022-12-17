@@ -7,12 +7,18 @@ from entities.calculation_manager import (
 
 
 class CalculatorService:
-    """Luokka hoitaa laskimen toiminnot"""
+    """
+    Luokka hoitaa laskimen toiminnot
 
-    def __init__(self, entry, calculator_repository=default_calculator_repository,
+    Attributes:
+        entry:
+            TKinter-elementti, jonka sisään näkymä alustetaan
+    """
+
+    def __init__(self, entry=None, calculator_repository=default_calculator_repository,
                  calculation=default_calculation):
         """
-        Konstruktori
+        Luokan konstruktori, jossa on kaikki tarvittava laskutoimituksien tekemiseen.
 
         Args:
             entry:
@@ -226,12 +232,6 @@ class CalculatorService:
         self._left_bracket = 0
         self._right_bracket = 0
         self._entry.delete(0, 'end')
-
-    def insert(self):
-        """Toiset luokat voivat käyttää tätä metodia tulostamaan tietoa näytölle"""
-        print("toimii")
-        self.reset()
-        self._entry.insert(0, self._calculation.return_input())
 
     def __str__(self):
         """Palauttaa laskimen näytön tämän hetkisen tilan"""

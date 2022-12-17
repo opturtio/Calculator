@@ -5,17 +5,23 @@ from entities.calculations import Calculations
 
 class CalculatorRepository:
     """
-    Laskimen tietokantaa käsittelevä luokka
+    Laskimen tietokantaa käsittelevä luokka.
 
     Attributes:
-        connection: attribuutti muodostaa yhteyden Sqlite3-tietokantaan
+        connection: attribuutti muodostaa yhteyden Sqlite3-tietokantaan.
     """
 
     def __init__(self, connection):
+        """
+        Luokan konstruktori, joka luo yhteyden tietokantaan.
+
+        Args:
+            connection (sqlite3.connection): Muodostaa yhteyden Sqlite3-tietokantaan.
+        """
         self._connection = connection
 
     def add_calculation(self, calculation):
-        """Lisää laskutoimituksen tietokantaan
+        """Lisää laskutoimituksen tietokantaan.
 
         Args:
             calculation (str): CalculationServicessa ja
@@ -39,6 +45,19 @@ class CalculatorRepository:
         self._connection.commit()
 
         return [Calculations(row["calculation"], row["timestamp"]) for row in rows]
+
+    def delete_by_timestamp(self, timestamp):
+        """
+        Poistaa laskutoimituksen ajan mukaan
+
+        Args:
+            timestamp (str): Attribuutti sisältää ajankohdan jolloin
+            laskutoimitus on tallentunut tietokantaan
+        """
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "DELETE FROM Calculations WHERE timestamp = ?", (timestamp,))
+        self._connection.commit()
 
     def delete_calculations(self):
         """

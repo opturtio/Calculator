@@ -18,11 +18,13 @@ class AboutView:
         self._calculator_image = create_image('./src/assets/calculator2.png')
 
     def show_about_view(self):
+        """Muodostaa about-ikkunan"""
         self._about_window = Toplevel()
         self._about_window.title("About")
         self._about_window.geometry('300x300')
 
     def print_info(self):
+        """Tulostaa tiedot about-ikkunaan"""
         Label(self._about_window, text='Calculator', font=(
             'Helvetica', 18, 'bold')).pack(padx=30, pady=10)
         Label(self._about_window, text='Calculator for simple calculation',
