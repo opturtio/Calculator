@@ -10,7 +10,7 @@ Käyttöliittymään ei ainakaan vielä tarvitse kirjautua. Laskinta voi alkaa k
 
 ## Käyttöliittymäluonnos
 
-![](./images/calculator.png)
+![](./images/calculator2.png)
 
 ## Perusversion toiminnallisuus
 

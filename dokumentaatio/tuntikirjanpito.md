@@ -18,4 +18,5 @@
 | 13.12 | 5    | Sain show historyn toimimaan |
 | 16.12 | 5    | Historia valikosta voi valita laskutoimituksia. HistoryView-luokka on nyt helppolukuinen. Select ja Delete näppäimet tulostavat nyt valinnat |
 | 17.12 | 9    | Historia näkymä toimii lähes täysin. Taas riippuvuudet ongelmana. Käyttäjä saa vaihdettua laskutoimituksen mutta se ei päivity heti näytölle. Pitää painaa jotain numeroa tai laskutoimituksen symbolia, jotta laskutoimitus näkyy. Kuva lisätty About-näkymään!!! :D Testikattavuutta lisätty |
-| yht.  | 84   | |
+| 19.12 | 2    | Dokumentaation tekemistä |
+| yht.  | 86   | |
