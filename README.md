@@ -5,9 +5,11 @@ Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmi
 Calculator on yksinkertainen laskin. Voit laskea sillä peruslaskutoimituksia. Ohjelma laajenee kurssin myötä.
 
 ## Dokumentaatio
-- [Arkkitehtuuri](./dokumentaatio/arkkitehtuuri.md)
-- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+- [Käyttöohje](./dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Arkkitehtuuri](./dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](./dokumentaatio/testausdokumentti.md)
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Changelog](./dokumentaatio/changelog.md)
 
 ## Asennus
