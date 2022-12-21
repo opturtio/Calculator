@@ -31,59 +31,59 @@ class TestCalculationManager(unittest.TestCase):
 
     def test_addition(self):
         self.calculator.add_number(1)
-        self.calculator._button_click_add()
+        self.calculator.button_click_add()
         self.calculator.add_number(2)
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "1+2")
 
     def test_substraction(self):
         self.calculator.add_number(9)
-        self.calculator._button_click_sub()
+        self.calculator.button_click_sub()
         self.calculator.add_number(8)
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "9-8")
 
     def test_multiplication(self):
         self.calculator.add_number(3)
-        self.calculator._button_click_mul()
+        self.calculator.button_click_mul()
         self.calculator.add_number(4)
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "3*4")
 
     def test_division(self):
         self.calculator.add_number(5)
-        self.calculator._button_click_div()
+        self.calculator.button_click_div()
         self.calculator.add_number(6)
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "5/6")
 
     def test_point(self):
         self.calculator.add_number(0)
-        self.calculator._button_click_point()
+        self.calculator.button_click_point()
         self.calculator.add_number(7)
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "0.7")
 
     def test_both_brackets_work(self):
-        self.calculator._button_left_bracket()
+        self.calculator.button_left_bracket()
         self.calculator.add_number(1)
-        self.calculator._button_click_add()
+        self.calculator.button_click_add()
         self.calculator.add_number(2)
-        self.calculator._button_right_bracket()
+        self.calculator.button_right_bracket()
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "(1+2)")
 
     def test_button_click_C_wipes_input(self):
         self.calculator.add_number(3)
-        self.calculator._button_click_mul()
-        self.calculator._button_click_clear()
+        self.calculator.button_click_mul()
+        self.calculator.button_click_clear()
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "")
 
     def test_button_click_clear_entry_wipes_one(self):
         self.calculator.add_number(3)
-        self.calculator._button_click_mul()
-        self.calculator._button_click_clear_entry()
+        self.calculator.button_click_mul()
+        self.calculator.button_click_clear_entry()
         self.assertEqual(
             str(self._calculation_manager.return_calculation()), "3")
 

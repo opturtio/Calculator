@@ -15,7 +15,7 @@ class CalculatorService:
             TKinter-elementti, jonka sisään näkymä alustetaan
     """
 
-    def __init__(self, entry=None, calculator_repository=default_calculator_repository,
+    def __init__(self, entry, calculator_repository=default_calculator_repository,
                  calculation=default_calculation):
         """
         Luokan konstruktori, jossa on kaikki tarvittava laskutoimituksien tekemiseen.
@@ -95,7 +95,7 @@ class CalculatorService:
         self._entry.delete(0, 'end')
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_add(self):
+    def button_click_add(self):
         """Lisää plusmerkin merkkijonoon"""
 
         self._check_error_message()
@@ -107,7 +107,7 @@ class CalculatorService:
         self._calculation.add_sign("+")
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_sub(self):
+    def button_click_sub(self):
         """Lisää miinusmerkin merkkijonoon"""
 
         self._check_error_message()
@@ -119,7 +119,7 @@ class CalculatorService:
         self._calculation.add_sign("-")
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_mul(self):
+    def button_click_mul(self):
         """Lisää kertomerkin merkkijonoon"""
         self._check_error_message()
         if self._calculation.return_last() in self._signs_and_symbols:
@@ -130,7 +130,7 @@ class CalculatorService:
         self._calculation.add_sign("*")
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_div(self):
+    def button_click_div(self):
         """Lisää jakomerkin merkkijonoon"""
         self._check_error_message()
         if self._calculation.return_last() in self._signs_and_symbols:
@@ -141,7 +141,7 @@ class CalculatorService:
         self._calculation.add_sign("/")
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_point(self):
+    def button_click_point(self):
         """Lisää pisteen merkkijonoon"""
         self._check_error_message()
         # TODO muuta tätä jotta voi olla kaksi pistettä laskussa
@@ -153,7 +153,7 @@ class CalculatorService:
         self._calculation.add_sign(".")
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_left_bracket(self):
+    def button_left_bracket(self):
         """Lisää vasemman sulkeen"""
         self._check_error_message()
 
@@ -172,7 +172,7 @@ class CalculatorService:
         self._left_bracket += 1
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_right_bracket(self):
+    def button_right_bracket(self):
         """Lisää oikean sulkeen"""
         self._check_error_message()
         self._right_bracket += 1
@@ -192,7 +192,7 @@ class CalculatorService:
         self._calculation.add_sign(")")
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_clear(self):
+    def button_click_clear(self):
         """Poistaa koko syötetyn merkkijonon"""
         self._check_error_message()
         self._entry.delete(0, 'end')
@@ -200,7 +200,7 @@ class CalculatorService:
         self._left_bracket = 0
         self._right_bracket = 0
 
-    def _button_click_clear_entry(self):  # FIXME
+    def button_click_clear_entry(self):  # FIXME
         """Poistaa yhden merkin"""
         self._check_error_message()
 
@@ -212,7 +212,7 @@ class CalculatorService:
         self._calculation.delete_last()
         self._entry.insert(0, self._calculation.return_input())
 
-    def _button_click_equal(self):
+    def button_click_equal(self):
         """Tulostaa vastauksen ja lähettää laskutoimituksen tallennettavaksi tietokantaan"""
         self._check_error_message()
         if self._right_bracket != self._left_bracket:

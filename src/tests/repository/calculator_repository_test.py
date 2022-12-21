@@ -23,3 +23,4 @@ class TestCalculatorRepository(unittest.TestCase):
 
         self.assertEqual(calculation, self.calculations.fetch_calculation())
         self.assertAlmostEqual(timestamp, self.calculations.fetch_timestamp())
+

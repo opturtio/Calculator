@@ -61,27 +61,27 @@ class CalculatorView:
 
         # Muodostaa laskutoimitus näppäimet
         button_add = ttk.Button(self._frame, text="+",
-                                command=self._calculator._button_click_add)
+                                command=self._calculator.button_click_add)
         button_sub = ttk.Button(self._frame, text="-",
-                                command=self._calculator._button_click_sub)
+                                command=self._calculator.button_click_sub)
         button_mul = ttk.Button(self._frame, text="*",
-                                command=self._calculator._button_click_mul)
+                                command=self._calculator.button_click_mul)
         button_div = ttk.Button(self._frame, text="/",
-                                command=self._calculator._button_click_div)
+                                command=self._calculator.button_click_div)
 
         # Muodostaa näppäimet: ( ) = CE C ja .
         button_left_bracket = ttk.Button(self._frame, text="(",
-                                         command=self._calculator._button_left_bracket)
+                                         command=self._calculator.button_left_bracket)
         button_right_right = ttk.Button(self._frame, text=")",
-                                        command=self._calculator._button_right_bracket)
+                                        command=self._calculator.button_right_bracket)
         button_C = ttk.Button(self._frame, text="C",
-                              command=self._calculator._button_click_clear)
+                              command=self._calculator.button_click_clear)
         button_CE = ttk.Button(self._frame, text="CE",
-                               command=self._calculator._button_click_clear_entry)
+                               command=self._calculator.button_click_clear_entry)
         button_point = ttk.Button(self._frame, text=".",
-                                  command=self._calculator._button_click_point)
+                                  command=self._calculator.button_click_point)
         button_equal = ttk.Button(self._frame, text="=",
-                                  command=self._calculator._button_click_equal)
+                                  command=self._calculator.button_click_equal)
 
         """Button grids"""
 
