@@ -10,8 +10,6 @@ Tallennukseen käytettävien tiedostojen nimiä voi halutessaan konfiguroida kä
 DATABASE_FILENAME=database.sqlite
 ```
 
-&nbsp;
-
 ## Ohjelman käynnistäminen
 
 Ennen kuin käynnistät ohjelman, sinun tulee asentaa riippuvuudet komennolla:
@@ -32,9 +30,9 @@ Lopuksi käynnistää sovellus komennolla:
 poetry run invoke start
 ```
 
-&nbsp;
+## Laskimen näkymät
 
-## Laskimen perusnäkymä
+### Laskimen perusnäkymä
 
 Laskimen käyttöliittymä on englanniksi.
 
@@ -46,22 +44,40 @@ Esimerkki virheilmoituksesta:
 
 ![](./images/error_example.png)
 
-## Uuden laskimen luonti ja poistuminen laskimesta
+### Uuden laskimen luonti ja poistuminen laskimesta
+
+Valitsemalla `File` avautuu alavalikko.
+
+Valitsemalla `New` voit alustaa uuden laskimen, myös kaikki vanhat laskutoimitukset häviää.
+
+Valitsemalla `Exit` poistut laskimesta.
 
 ![](./images/file.png)
 
-## Historia näkymään siirtyminen ja historian poistaminen
+### Historia näkymään siirtyminen ja historian poistaminen
+
+Valitsemalla `History` avautuu alavalikko.
+
+Valitsemalla `Show history` avautuu uusi ikkuna, jossa näkyy vanhat laskutoimitukset.
+
+Valitsemalla `Delete history` voit poistaa historiasta kaikki laskutoimitukset.
 
 ![](./images/history.png)
 
-## Help näkymä
-
-![](./images/help.png)
-
-## Historia näkymä
+### Historia näkymä
+Historia näkymässä voit tarkastella vanhoja laskutoimituksia. Näet kellonajan milloin laskutoimitus on tallentunut historiaan ja sen perässä näet vanhan laskutoimituksen. Kun laskutoimitus on valittu, voit valita `Delete`, joka poistaa laskutoimituksen tai voit valita `Select`, joka kopioi laskutoimituksen laskimen ruudulle. **HUOM!** Kun laskutoimitus kopioidaan ruudulle sitä ei näy samantien. Painamalla jotain laskimen nappia esim. plus-nappia laskutoimitus ilmestyy näkyviin.
 
 ![](./images/history_view.png)
 
-## About näkymä
+### Help näkymä
+Valitsemalla `Help` avautuu alavalikko.
+
+Valitsemalla `About...` avautuu uusi ikkuna, jossa näkyy tietoja ohjelmasta.
+
+![](./images/help.png)
+
+### About näkymä
+
+About näkymässä näet kuvan laskimen perusnäkymästä, laskimen tekijän nimen ja julkaisuvuoden.
 
 ![](./images/about_view.png)
