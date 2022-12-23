@@ -6,7 +6,7 @@ Ohjelmaa on testattu sekä automatisoiduin yksikkö- ja integraatiotestein unitt
 
 ### Sovelluslogiikka
 
-Laskimen sovelluslogiikasta vastaavaa `CalculatorService`-luokkaa testataan [TestCalculatorService](src/tests/../../../src/services/calculator_service.py)-testiluokassa. Testiluokassa testataan myös virheilmoitukset. Laskimen laskutoimituksista vastaavaa `CalculationManager`-luokkaa testataan [TestCalculationManager](src/../../src/tests/entities/calculation_manager_test.py)-testiluokassa. Nämä kaksi testiluokkaa testaavat samalla molempia luokkia ei pelkästään luokkaa itsessään.
+Laskimen sovelluslogiikasta vastaavaa `CalculatorService`-luokkaa testataan [TestCalculatorService](src/tests/../../../src/tests/services/calculator_services_test.py)-testiluokassa. Testiluokassa testataan pääsääntöisesti virheilmoitukset, mutta testit testaavat samalla itse luokan toimivuutta. Laskimen laskutoimituksista vastaavaa `CalculationManager`-luokkaa testataan [TestCalculationManager](src/../../src/tests/entities/calculation_manager_test.py)-testiluokassa. Nämä kaksi testiluokkaa testaavat samalla molempia luokkia ei pelkästään luokkaa itsessään.
 
 ### Repositorio-luokat
 

@@ -24,7 +24,7 @@ classDiagram
     CalculatorView --|> MenubarService
     CalculatorView --|> AboutService
 
-    CalculatorService --|> CalculationManager
+    CalculatorService <|--|> CalculationManager
     CalculatorService --|> CalculatorRepository
 
     AboutService --|> AboutView
