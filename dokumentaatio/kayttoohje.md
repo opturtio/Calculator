@@ -1,6 +1,8 @@
 # Käyttöohje
 
-Lataa projektin viimeisin release lähdekoodi valitsemalla Assests-osion alta _Source code_.
+Lataa projektin viimeisin release lähdekoodi valitsemalla **Assests**-osion alta _Source code_.
+
+HUOM! Tiedoksi käyttäjälle. Laskinta ei ole tarkoitus käyttää muuten kuin käyttöliittymän kautta. Sovellus ei lisää näppäimistöltä annettuja syötteitä laskutoimitukseen. Tätä ei ole kuitenkaan estetty.
 
 ## Konfigurointi
 

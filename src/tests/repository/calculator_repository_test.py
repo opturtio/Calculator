@@ -11,8 +11,8 @@ class TestCalculatorRepository(unittest.TestCase):
         self.calculator_repository.delete_calculations()
         self.calculator_repository.add_calculation("2+3+4=9")
 
-        current_time = datetime.now()
-        timestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
+        self.current_time = datetime.now()
+        timestamp = self.current_time.strftime("%Y-%m-%d %H:%M:%S")
 
         self.calculations = Calculations("2+3+4=9", timestamp)
 
@@ -22,5 +22,12 @@ class TestCalculatorRepository(unittest.TestCase):
         timestamp = list_of_calculations[0].fetch_timestamp()
 
         self.assertEqual(calculation, self.calculations.fetch_calculation())
+        self.assertAlmostEqual(timestamp, self.calculations.fetch_timestamp())
+
+    def test_deleting_by_timestamp(self):
+        self.calculator_repository.delete_by_timestamp(self.current_time)
+        list_of_calculations = self.calculator_repository.list_calculations()
+        timestamp = list_of_calculations[0].fetch_timestamp()
+
         self.assertAlmostEqual(timestamp, self.calculations.fetch_timestamp())
 

@@ -1,0 +1,44 @@
+# Testausdokumentti
+
+Ohjelmaa on testattu sekä automatisoiduin yksikkö- ja integraatiotestein unittestilla sekä manuaalisesti tapahtunein järjestelmätason testein.
+
+## Yksikkö- ja integraatiotestaus
+
+### Sovelluslogiikka
+
+Laskimen sovelluslogiikasta vastaavaa `CalculatorService`-luokkaa testataan [TestCalculatorService](src/tests/../../../src/services/calculator_service.py)-testiluokassa. Testiluokassa testataan myös virheilmoitukset. Laskimen laskutoimituksista vastaavaa `CalculationManager`-luokkaa testataan [TestCalculationManager](src/../../src/tests/entities/calculation_manager_test.py)-testiluokassa. Nämä kaksi testiluokkaa testaavat samalla molempia luokkia ei pelkästään luokkaa itsessään.
+
+### Repositorio-luokat
+
+Repostorio-luokkaa `CalcultorRepository` testataan [TestCalculatorRepository](src/../../src/tests/repository/calculator_repository_test.py)-testiluokassa. Tiedostojen nimet on konfiguroitu _.env.test_-tiedostoon. Testattavana on myös `Calculations`-luokka, joka on yhteydessä `CalculatorRepository`-luokkaan. Luokan olio muodostetaan, joka kerta, kun tietokannasta haetaan tietoa. Sitä testaan [TestCalculatios](src/../../src/tests/entities/calculations_test.py)-testiluokassa.
+
+### Testauskattavuus
+
+Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 95%
+
+![](/dokumentaatio/images/coverage95.png)
+
+Testaamatta jäivät _build.py_- ja _initialize\_database.py_-tiedostojen suorittaminen komentoriviltä. Nämä olisi myös voinut jättää testikattavuuden ulkopuolelle.
+Testien ulkopuolelle jäivät myös luokat AboutService, HistoryService ja MenubarService. Nämä luokat olivat sidoksissa käyttöliittymän käynnistämiseen ja sisälsivät käyttöliittymän komponentteja. Kuitenkin haarautumiskattavuus oli silti 81% näiden luokkien ollessa mukana.
+
+![](/dokumentaatio/images/)
+
+## Järjestelmätestaus
+
+Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
+
+### Asennus ja konfigurointi
+
+Sovellus on haettu ja sitä on testattu [käyttöohjeen](kayttoohje.md) kuvaamalla tavalla Linux-ympäristössä sekä vastuuopettajan macOS-käyttöjärjestelmässä.
+
+
+### Toiminnallisuudet
+
+Kaikki [vaatimusmäärittelyn](vaatimusmaarittely.md) ja käyttöohjeen listaamat toiminnallisuudet on käyty läpi.
+
+## Sovellukseen jääneet laatuongelmat
+
+- Sovellusta ei ole tarkoitus käyttää muuten kuin käyttöliittymän näppäimiä käyttämällä. Sovellus ei lisää näppäimistöltä annettuja syötteitä laskutoimitukseen. Tätä ei ole kuitenkaan estetty. Tästä olisi ollut hyvä tehdä virheilmoitukset. Tämä ei kuitenkaan pitäisi kaataa sovellusta tai aiheuttaa vääristymiä laskutoimituksissa.
+
+- Laskimesta luultavasti löytyy vielä jonkin verran bugeja. On todella vaikea käydä kaikki skennaariot läpi mitkä voisivat aiheuttaa virhetilanteen. Tätä varten olisin halunnut luoda ErrorHandler-luokan.
+
