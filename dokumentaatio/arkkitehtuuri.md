@@ -11,11 +11,11 @@ graph TD;
     services-->repositories;
     repositories-->entities;
 ```
-&nbsp;
+
 
 ## Sovelluslogiikka
 
-CalculatorView lähettää komennot CalculatorService ja MenubarService kun laskimen näppäimiä painetaan. Sovelluksen sovelluslogiikasta vastaavat luokat CalculatorServices ja MenubarService. CalculatorServices tallentaa laskut Calculation luokkaan. **HUOM!** Lisäsin lisää toiminnallisuuksia. Päivitän tämän tekstin myöhemmin ja teen luokkadiagrammista tarkemma.
+CalculatorView lähettää komennot CalculatorService MenubarService ja AboutService luokille kun laskimen näppäimiä painetaan. Sovelluksen sovelluslogiikasta vastaavat luokat CalculatorServices, MenubarService, AboutService sekä HistoryService. CalculatorServices tallentaa laskut CalculationManager luokkaan.
 
 
 ```mermaid
@@ -34,29 +34,19 @@ classDiagram
     MenubarService --|> CalculatorService
     MenubarService --|> CalculationManager
 
-    CalculatorRepository --|> HistoryView
     CalculatorRepository --|> Calculations
+
+    Calculations --|> HistoryView
+
+    HistoryView --|> HistoryService
+    HistoryService --|> CalculatorRepository
 ```
 
-&nbsp;
-
-## Tietojen pysyväistallennus
-
-Pakkauksen _repositories_ luokka `CalculatorRepository` hoitaa laskutoimitusten tallentamisen. Laskutoimitukset tallennetaan SQLite3-tietokantaan. Luokka noudattaa repository-suunnittelumallia.
-
-Sovelluksen juuressa oleva [.env](../.env) -konfiguraatiotiedosto määrittelee tiedostojen nimet.
-
-Tietokannassa on taulu `Calculations`, johon tallennetaan aikaleima ja laskutoimitus, kun käyttäjä painaa '='-merkkiä.
-
-Tietokanta alustetaan tiedostossa [initialize_database.py](../src/initialize_database.py)
-
-&nbsp;
 
 ## Päätoiminnallisuudet
 
 ### Tämä kaavio kuvaa menubarin ja nappien alustamista ja toiminnallisuutta.
 
-&nbsp;
 
 ```mermaid
 sequenceDiagram
@@ -75,18 +65,27 @@ sequenceDiagram
     Note over CalculatorView: self._initialize_buttons()
     Note over CalculatorView: self._initialize_menu()
 
-    CalculatorView->>CalculatorService: Service of all calculation buttons
+    CalculatorView->>CalculatorService: Service of all calculation buttons[1]
 
     CalculatorView->>MenubarService: self._menubar.create_new()
     CalculatorView->>MenubarService: self._menubar.show_history()
     CalculatorView->>MenubarService: self._menubar.delete_history()
     CalculatorView->>AboutService: self._about_service.initialize_about_view()
 ```
-&nbsp;
 
-_Service of all calculation buttons_ käsittää kaikki laskimen napit.
+[1] _Service of all calculation buttons_ käsittää kaikki laskimen napit.
 
-&nbsp;
+
+## Tietojen pysyväistallennus
+
+Pakkauksen _repositories_ luokka `CalculatorRepository` hoitaa laskutoimitusten tallentamisen. Laskutoimitukset tallennetaan SQLite3-tietokantaan. Luokka noudattaa repository-suunnittelumallia.
+
+Sovelluksen juuressa oleva [.env](../.env) -konfiguraatiotiedosto määrittelee tiedostojen nimet.
+
+Tietokannassa on taulu `Calculations`, johon tallennetaan aikaleima ja laskutoimitus, kun käyttäjä painaa '='-merkkiä.
+
+Tietokanta alustetaan tiedostossa [initialize_database.py](../src/initialize_database.py)
+
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
