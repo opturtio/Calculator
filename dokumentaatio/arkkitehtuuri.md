@@ -12,38 +12,15 @@ graph TD;
     repositories-->entities;
 ```
 
+# Käyttöliittymä
 
-## Sovelluslogiikka
+Käyttöliittymä sisältää kolme erillistä näkymää:
 
-CalculatorView lähettää komennot CalculatorService MenubarService ja AboutService luokille kun laskimen näppäimiä painetaan. Sovelluksen sovelluslogiikasta vastaavat luokat CalculatorServices, MenubarService, AboutService sekä HistoryService. CalculatorServices tallentaa laskut CalculationManager luokkaan.
+- Laskimen perusnäkymä
+- Historia näkymä
+- Laskimen tiedot-näkymä
 
-
-```mermaid
-classDiagram
-    CalculatorView --|> CalculatorService
-    CalculatorView --|> MenubarService
-    CalculatorView --|> AboutService
-
-    CalculatorService <|--|> CalculationManager
-    CalculatorService --|> CalculatorRepository
-
-    AboutService --|> AboutView
-
-    MenubarService --|> HistoryView
-    MenubarService --|> CalculatorRepository
-    MenubarService --|> CalculatorService
-    MenubarService --|> CalculationManager
-
-    CalculatorRepository --|> Calculations
-
-    Calculations --|> HistoryView
-
-    HistoryView --|> HistoryService
-    HistoryService --|> CalculatorRepository
-```
-
-
-## Päätoiminnallisuudet
+Joikainen näkymistä on toteutettu omana luokkanaan. Laskimen perusnäkymä pysyy aina näkyvissä. Historia ja laskimen tiedot avautuvat uuteen ikkunaan. Käyttöliittymä on pyritty eriyttämään sovelluslogiikasta.
 
 ### Tämä kaavio kuvaa menubarin ja nappien alustamista ja toiminnallisuutta.
 
@@ -74,6 +51,66 @@ sequenceDiagram
 ```
 
 [1] _Service of all calculation buttons_ käsittää kaikki laskimen napit.
+
+## Sovelluslogiikka
+
+CalculatorView lähettää komennot CalculatorService MenubarService ja AboutService luokille kun laskimen näppäimiä painetaan. Sovelluksen sovelluslogiikasta vastaavat luokat CalculatorServices, MenubarService, AboutService sekä HistoryService. CalculatorServices tallentaa laskut CalculationManager luokkaan. Laskutoimitukset tallennetaan CalculatorServicestä CalculatorRepositoryyn. CalculatorRepositoryssa muodostetaan olio Calculations, jossa on kaikki laskutoimitukset. Nämä laskutoimutukset tulostetaan HistoryViewissä. Jos HistoryViewissä laskutoimituksia muokataan nämä muokkaukset tapahtuvat HistoryServicessä ja tallentuvat sieltä CalculatorRepositoryyn.
+
+
+```mermaid
+classDiagram
+    CalculatorView --|> CalculatorService
+    CalculatorView --|> MenubarService
+    CalculatorView --|> AboutService
+
+    CalculatorService <|--|> CalculationManager
+    CalculatorService --|> CalculatorRepository
+
+    AboutService --|> AboutView
+
+    MenubarService --|> HistoryView
+    MenubarService --|> CalculatorRepository
+    MenubarService --|> CalculatorService
+    MenubarService --|> CalculationManager
+
+    CalculatorRepository --|> Calculations
+
+    Calculations --|> HistoryView
+
+    HistoryView --|> HistoryService
+    HistoryService --|> CalculatorRepository
+```
+
+### Tämä kaavio kuvaa CalculatorServicen, CalculationManagerin ja CalculatorRepositoryn välistä toimintaa. CalculatorService vastaa laskimen sovelluslogiikasta. Se lähettää käskyt CalculationManagerille, joka hoitaa laskutoimitusten käsittelyn. CalculatorService kutsuu CalculationManageria, joka palauttaa laskutoimituksen, joka tulostetaan laskimen käyttöliittymään. Painamalla '='-nappia CalculatorService ratkaisee laskutoimituksen ja lähettää sen CalculatorRepositorylle, joka tallentaa laskutoimituksen ja vastauksen tietokantaan.
+
+```mermaid
+sequenceDiagram
+    participant CalculatorService
+    participant CalculationManager
+    participant CalculatorRepository
+
+    Note over CalculatorService, CalculationManager: Adding number
+    CalculatorService->>CalculationManager: self._calculation.add_sign(str(number))
+    CalculationManager->>CalculatorService: self._calculation.return_input()
+
+    Note over CalculatorService, CalculationManager: Adding signs: + - * / . ( )
+    CalculatorService->>CalculationManager: self._calculation.add_sign("sign")
+    CalculationManager->>CalculatorService: self._calculation.return_input()
+
+    Note over CalculatorService, CalculationManager: Deleting calculation
+    CalculatorService->>CalculationManager: self._calculation.delete()
+
+    Note over CalculatorService, CalculationManager: Deleting last
+    CalculatorService->>CalculationManager: self._calculation.delete_last()
+
+    Note over CalculatorService, CalculationManager: Creating answer
+    CalculationManager->>CalculatorService: self._calculation.return_input()
+    Note over CalculatorService: result = eval(self._calculation.return_input())
+    CalculatorService->>CalculatorRepository: self._calculator_repository.add_calculation(f"{self._calculation.return_input()}={result}")
+    CalculatorService->>CalculationManager: self._calculation.reset_points()
+```
+
+
 
 
 ## Tietojen pysyväistallennus
