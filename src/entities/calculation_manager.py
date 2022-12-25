@@ -107,6 +107,7 @@ class CalculationManager:
         """
         if self._points > 1:
             return True
+        return False
 
     def reset_points(self):
         """

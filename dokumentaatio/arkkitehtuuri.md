@@ -141,7 +141,7 @@ sequenceDiagram
     end
 
     rect rgb(0, 223, 160)
-    rect rgb(90, 13, 250)
+    rect rgb(10, 150, 160)
     Note over MenubarService: Show history
     MenubarService->>HistoryView: self._history_view.open_history_window()
     MenubarService->>HistoryView: self._history_view.create_scrollbar()

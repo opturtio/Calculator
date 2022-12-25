@@ -88,9 +88,7 @@ class CalculatorService:
 
     def _length_zero(self):
         if self._calculation.length() == 0:
-            return True
-
-    """Laskutoimitukset"""
+            return
 
     def add_number(self, number):
         """Lisää annetun numeron merkkijonoon"""
@@ -99,7 +97,8 @@ class CalculatorService:
 
         if self._calculation.length() > 0:
             if self._calculation.return_last() == ")":
-                return self._handle_number_after_right_bracket_error()
+                self._handle_number_after_right_bracket_error()
+                return
 
         self._calculation.add_sign(str(number))
         self._entry.delete(0, 'end')
@@ -112,8 +111,9 @@ class CalculatorService:
 
         self._check_error_message()
 
-        if self._calculation.return_last() in self._signs_and_symbols:
-            return self._handle_two_signs_error("+")
+        if self._calculation.return_last() in self._signs_and_symbols or self._calculation.return_last() == "-": # pylint: disable=line-too-long
+            self._handle_two_signs_error("+")
+            return
 
         self._entry.delete(0, 'end')
         self._calculation.add_sign("+")
@@ -125,9 +125,11 @@ class CalculatorService:
         self._check_error_message()
 
         if self._calculation.length() > 0 and self._calculation.return_last() == "-":
-            return self._handle_two_signs_error("/")
+            self._handle_two_signs_error("/")
+            return
         if self._calculation.length() > 0 and self._calculation.return_last() in self._signs:
-            return self._handle_right_bracket_error()
+            self._handle_right_bracket_error()
+            return
 
         self._entry.delete(0, 'end')
         self._calculation.add_sign("-")
@@ -140,8 +142,9 @@ class CalculatorService:
 
         self._check_error_message()
 
-        if self._calculation.return_last() in self._signs_and_symbols:
-            return self._handle_two_signs_error("*")
+        if self._calculation.return_last() in self._signs_and_symbols or self._calculation.return_last() == "-": # pylint: disable=line-too-long
+            self._handle_two_signs_error("*")
+            return
 
         self._entry.delete(0, 'end')
         self._calculation.add_sign("*")
@@ -154,8 +157,9 @@ class CalculatorService:
 
         self._check_error_message()
 
-        if self._calculation.return_last() in self._signs_and_symbols:
-            return self._handle_two_signs_error("/")
+        if self._calculation.return_last() in self._signs_and_symbols or self._calculation.return_last() == "-": # pylint: disable=line-too-long
+            self._handle_two_signs_error("/")
+            return
 
         self._entry.delete(0, 'end')
         self._calculation.add_sign("/")
@@ -167,7 +171,8 @@ class CalculatorService:
 
         self._calculation.add_point()
         if self._calculation.check_points():
-            return self._handle_two_points_error()
+            self._handle_two_points_error()
+            return
 
         self._entry.delete(0, 'end')
         self._calculation.add_sign(".")
@@ -184,7 +189,8 @@ class CalculatorService:
             return
 
         if self._calculation.length() > 0 and self._calculation.return_last() not in self._signs:
-            return self._handle_left_bracket_error()
+            self._handle_left_bracket_error()
+            return
 
         self._entry.delete(0, 'end')
         self._calculation.add_sign("(")
@@ -235,10 +241,12 @@ class CalculatorService:
         """Tulostaa vastauksen ja lähettää laskutoimituksen tallennettavaksi tietokantaan"""
         self._check_error_message()
         if self._right_bracket != self._left_bracket:
-            return self._handle_equal_error()
+            self._handle_equal_error()
+            return
 
-        if self._calculation.return_last() in self._signs_and_symbols_with_point or self._calculation.return_last() == "-":
-            return self._handle_sing_before_equal_error()
+        if self._calculation.return_last() in self._signs_and_symbols_with_point or self._calculation.return_last() == "-": # pylint: disable=line-too-long
+            self._handle_sing_before_equal_error()
+            return
 
         self._entry.delete(0, 'end')
 
