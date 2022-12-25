@@ -21,4 +21,4 @@
 | 19.12 | 2    | Dokumentaation tekemistä |
 | 23.12 | 5    | Viimeisten dokumenttien tekemistä |
 | 25.12 | 6    | Negatiivisten laskutoimitusten lisäys. Testikattavuuden parantaminen. Viimeinen silaus |
-| yht.  | 97   | |
+| yht.  | 98   | |

@@ -22,6 +22,8 @@ class HistoryView:
         self._history_window = Toplevel()
         self._history_window.title("History")
         self._history_window.geometry("600x600")
+        self._history_window.minsize(600, 600)
+        self._history_window.maxsize(600, 600)
         self._label_one = Label(self._history_window,
                                 text="The history of the Calculations").pack()
 

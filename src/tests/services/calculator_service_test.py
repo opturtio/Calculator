@@ -4,7 +4,7 @@ from services.calculator_service import CalculatorService
 from entities.calculation_manager import calculation_manager
 
 
-class TestCalculatorServices(unittest.TestCase):
+class TestCalculatorService(unittest.TestCase):
     def setUp(self):
         self._root = Tk()
         self._frame = ttk.Frame(master=self._root)
@@ -148,7 +148,8 @@ class TestCalculatorServices(unittest.TestCase):
         self.calculator.add_number(6)
         self.calculator.button_click_div()
         self.calculator.button_click_equal()
-        self.assertEqual(str(self.calculator), "You cannot have sign before pressing equal")
+        self.assertEqual(str(self.calculator),
+                         "You cannot have sign before pressing equal")
 
     def test_does_reset_work(self):
         self.calculator.reset()
@@ -157,18 +158,7 @@ class TestCalculatorServices(unittest.TestCase):
         self.assertEqual(self.calculator._right_bracket, 0)
         self.assertEqual(self.calculation_manager._points, 0)
 
-    def test_adding_plus_sign_when_length_zero(self):
-        self.calculator.button_click_add()
-        self.assertEqual(self.calculation_manager.length(), 0)
-
-    def test_adding_mul_sign_when_length_zero(self):
-        self.calculator.button_click_mul()
-        self.assertEqual(self.calculation_manager.length(), 0)
-
-    def test_adding_div_sign_when_length_zero(self):
-        self.calculator.button_click_div()
-        self.assertEqual(self.calculation_manager.length(), 0)
-
     def test_entering_right_bracket_to_empty_entry(self):
         self.calculator.button_right_bracket()
-        self.assertEqual(str(self.calculator),"You need to enter left bracket first")
+        self.assertEqual(str(self.calculator),
+                         "You need to enter left bracket first")

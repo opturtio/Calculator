@@ -24,6 +24,8 @@ class AboutView:
         self._about_window = Toplevel()
         self._about_window.title("About")
         self._about_window.geometry('400x400')
+        self._about_window.minsize(400, 400)
+        self._about_window.maxsize(400, 400)
 
     def create_image(self):
         """Luo kuva muuttujan"""
