@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import ImageTk
 import PIL.Image
 
+
 def create_image(path):
     image = PIL.Image.open(path)
     tk_image = ImageTk.PhotoImage(image)
@@ -37,7 +38,7 @@ class AboutView:
         Label(self._about_window, text='Calculator for simple calculation',
               font=('Helvetica', 10)).pack()
 
-        Label(self._about_window, image=self._calculator_image).pack(side = TOP)
+        Label(self._about_window, image=self._calculator_image).pack(side=TOP)
         Label(self._about_window, text='Author: Olli-Pekka Turtio').pack()
         Label(self._about_window, text='Published: 2022©').pack()
 

@@ -101,4 +101,5 @@ class TestCalculationManager(unittest.TestCase):
 
     def test_insert_calculation(self):
         self._calculation_manager.insert_calculation("2+3+4")
-        self.assertEqual(str(self._calculation_manager.return_calculation()), "2+3+4")
+        self.assertEqual(
+            str(self._calculation_manager.return_calculation()), "2+3+4")

@@ -9,6 +9,7 @@ class Calculations:
         calculation: Tietokannasta poimittu laskutoimitus.
         timestamp: Tietokannasta poimitun laskutoimituksen aikaleima.
     """
+
     def __init__(self, calculation, timestamp):
         """
         Luokan konstruktori, joka luo uuden laskutoimituksen ja

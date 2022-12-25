@@ -5,6 +5,7 @@ from repositories.calculator_repository import (
 )
 from entities.calculations import Calculations
 
+
 class TestCalculatorRepository(unittest.TestCase):
     def setUp(self, calculator_repository=default_calculator_repository):
         self.calculator_repository = calculator_repository
@@ -30,4 +31,3 @@ class TestCalculatorRepository(unittest.TestCase):
         timestamp = list_of_calculations[0].fetch_timestamp()
 
         self.assertAlmostEqual(timestamp, self.calculations.fetch_timestamp())
-

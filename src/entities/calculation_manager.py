@@ -5,6 +5,7 @@ class CalculationManager:
     Attributes:
         calculation: Sen hetkinen laskutoimitus
     """
+
     def __init__(self, calculation):
         """
         Luokan konstruktori, joka luo uuden laskutoimituksen.
@@ -13,6 +14,8 @@ class CalculationManager:
             calculation: Sen hetkinen laskutoimitus.
         """
         self._calculation = calculation
+        self._signs = "+-*/()"
+        self._points = 0
 
     def add_sign(self, sign):
         """
@@ -21,6 +24,8 @@ class CalculationManager:
         Args:
             sign (str): Lisättävä merkki
         """
+        if sign in self._signs:
+            self.reset_points()
         self._calculation += sign
 
     def insert_calculation(self, calculation):
@@ -86,6 +91,28 @@ class CalculationManager:
         Poistaa viimeisen merkin laskutoimituksesta.
         """
         self._calculation = self._calculation[:-1]
+
+    def add_point(self):
+        """
+        Lisää yhden pistelaskuriin
+        """
+        self._points += 1
+
+    def check_points(self):
+        """
+        Tarkistaa onko pistelaskuri ylittynyt sallitun määrän
+
+        Returns:
+            Palauttaa True, jos pistelaskuri ylittynyt
+        """
+        if self._points > 1:
+            return True
+
+    def reset_points(self):
+        """
+        Nollaa pistelaskurin
+        """
+        self._points = 0
 
 
 calculation_manager = CalculationManager("")  # pylint: disable=invalid-name
