@@ -118,11 +118,57 @@ class TestCalculatorServices(unittest.TestCase):
     def test_handle_two_points_error_method(self):
         self.calculator._handle_two_points_error()
         self.assertEqual(str(self.calculator),
-                         "You cannot have to points in a number")
+                         "You cannot have two points in a number")
 
-    def test_two_sigs_error_method(self):  # TODO check this out
+    def test_two_sigs_error_method(self):
         self.calculator._error_message = False
         self.calculator._handle_two_signs_error("+")
         self.assertEqual(self.calculator._error_message, True)
         self.assertCountEqual(str(self.calculator),
                               "You cannot enter two signs/symbols in a row")
+
+    def test_sign_before_equal_error(self):
+        self.calculator.add_number(1)
+        self.calculator.button_click_div()
+        self.calculator.button_click_sub()
+        self.assertEqual(str(self.calculator),
+                         "You need to enter left bracket first")
+
+    def test_two_points_error(self):
+        self.calculator.add_number(1)
+        self.calculator.button_click_point()
+        self.calculator.add_number(1)
+        self.calculator.button_click_point()
+        self.assertEqual(str(self.calculator),
+                         "You cannot have two points in a number")
+
+    def test_sign_before_equal(self):
+        self.calculator.add_number(6)
+        self.calculator.button_click_div()
+        self.calculator.add_number(6)
+        self.calculator.button_click_div()
+        self.calculator.button_click_equal()
+        self.assertEqual(str(self.calculator), "You cannot have sign before pressing equal")
+
+    def test_does_reset_work(self):
+        self.calculator.reset()
+        self.assertEqual(self.calculator._error_message, False)
+        self.assertEqual(self.calculator._left_bracket, 0)
+        self.assertEqual(self.calculator._right_bracket, 0)
+        self.assertEqual(self.calculation_manager._points, 0)
+
+    def test_adding_plus_sign_when_length_zero(self):
+        self.calculator.button_click_add()
+        self.assertEqual(self.calculation_manager.length(), 0)
+
+    def test_adding_mul_sign_when_length_zero(self):
+        self.calculator.button_click_mul()
+        self.assertEqual(self.calculation_manager.length(), 0)
+
+    def test_adding_div_sign_when_length_zero(self):
+        self.calculator.button_click_div()
+        self.assertEqual(self.calculation_manager.length(), 0)
+
+    def test_entering_right_bracket_to_empty_entry(self):
+        self.calculator.button_right_bracket()
+        self.assertEqual(str(self.calculator),"You need to enter left bracket first")

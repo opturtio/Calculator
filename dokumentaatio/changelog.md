@@ -44,3 +44,5 @@ Olin viime ja tämän viikon kipeänä, joten projekti ei ole edennyt paljoa. On
 - Kaiken taistelun jälkeen vihdoinkin kuva lisätty About-näkymään!
 - Testikattavuutta lisätty
 - Dokumentaation tekemistä
+- Negatiivisia laskutoimituksia voi tehdä
+- Viimeistely

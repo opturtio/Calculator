@@ -2,7 +2,7 @@
 
 Tämä on harjoitustyöni Helsingin yliopiston tietojenkäsittelytieteen ohjelmistotekniikka-kurssille.
 
-Calculator on yksinkertainen laskin. Voit laskea sillä peruslaskutoimituksia. Ohjelma laajenee kurssin myötä.
+Calculator on yksinkertainen laskin. Voit laskea sillä peruslaskutoimituksia.
 
 ## Dokumentaatio
 - [Käyttöohje](./dokumentaatio/kayttoohje.md)

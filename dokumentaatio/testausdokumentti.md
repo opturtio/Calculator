@@ -16,10 +16,13 @@ Repostorio-luokkaa `CalcultorRepository` testataan [TestCalculatorRepository](sr
 
 Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 95%
 
-![](/dokumentaatio/images/coverage95.png)
+![](/dokumentaatio/images/coverage98.png)
 
 Testaamatta jäivät _build.py_- ja _initialize\_database.py_-tiedostojen suorittaminen komentoriviltä. Nämä olisi myös voinut jättää testikattavuuden ulkopuolelle.
-Testien ulkopuolelle jäivät myös luokat AboutService, HistoryService ja MenubarService. Nämä luokat olivat sidoksissa käyttöliittymän käynnistämiseen ja sisälsivät käyttöliittymän komponentteja. Kuitenkin haarautumiskattavuus oli silti 81% näiden luokkien ollessa mukana.
+Testien ulkopuolelle jäivät myös luokat AboutService, HistoryService ja MenubarService. Nämä luokat olivat sidoksissa käyttöliittymän käynnistämiseen ja sisälsivät käyttöliittymän komponentteja. Kuitenkin haarautumiskattavuus oli silti 85% näiden luokkien ollessa mukana.
+
+![](/dokumentaatio/images/coverage85.png)
+
 
 ![](/dokumentaatio/images/)
 
@@ -41,4 +44,6 @@ Kaikki [vaatimusmäärittelyn](vaatimusmaarittely.md) ja käyttöohjeen listaama
 - Sovellusta ei ole tarkoitus käyttää muuten kuin käyttöliittymän näppäimiä käyttämällä. Sovellus ei lisää näppäimistöltä annettuja syötteitä laskutoimitukseen. Tätä ei ole kuitenkaan estetty. Tästä olisi ollut hyvä tehdä virheilmoitukset. Tämä ei kuitenkaan pitäisi kaataa sovellusta tai aiheuttaa vääristymiä laskutoimituksissa.
 
 - Laskimesta luultavasti löytyy vielä jonkin verran bugeja. On todella vaikea käydä kaikki skennaariot läpi mitkä voisivat aiheuttaa virhetilanteen. Tätä varten olisin halunnut luoda ErrorHandler-luokan.
+
+- Testaus saattaa tuottaa virheen: FAILED src/tests/repository/calculator_repository_test.py::TestCalculatorRepository::test_deleting_by_timestamp - TypeError: unsupported operand type(s) for -: 'str' and 'str'. Tämä virhe johtuu siitä ettei testi ehditse luoda aikaleimaa tarpeeksi nopeasti. Aja testi uudestaan. Sen pitäisi seuraavalla kerralla mennä läpi. Testauksen aikana tämä virhe ilmestyi vain kerran.
 
