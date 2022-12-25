@@ -2,7 +2,7 @@
 
 ## Rakenne
 
-Sovellus pyrkii noudattamaan referenssisovelluksen rakennetta:
+Sovellus noudattamaan referenssisovelluksen rakennetta:
 
 ```mermaid
 graph TD;
@@ -20,7 +20,7 @@ Käyttöliittymä sisältää kolme erillistä näkymää:
 - Historia näkymä
 - Laskimen tiedot-näkymä
 
-Joikainen näkymistä on toteutettu omana luokkanaan. Laskimen perusnäkymä pysyy aina näkyvissä. Historia ja laskimen tiedot avautuvat uuteen ikkunaan. Käyttöliittymä on pyritty eriyttämään sovelluslogiikasta.
+Jokainen näkymä toteutettu omana luokkanaan. Laskimen perusnäkymä pysyy aina näkyvissä. Historia ja laskimen tiedot avautuvat uuteen ikkunaan. Näiden ikkunoiden sulkeminen ei vaikuta laskimen perusnäkymään. Sulkemalla laskimen perusnäkymän sulkeutuu kaikki ikkunat. Käyttöliittymä on pyritty eriyttämään sovelluslogiikasta.
 
 ### Tämä kaavio kuvaa menubarin ja nappien alustamista ja toiminnallisuutta.
 
@@ -54,7 +54,9 @@ sequenceDiagram
 
 ## Sovelluslogiikka
 
-CalculatorView lähettää komennot CalculatorService MenubarService ja AboutService luokille kun laskimen näppäimiä painetaan. Sovelluksen sovelluslogiikasta vastaavat luokat CalculatorServices, MenubarService, AboutService sekä HistoryService. CalculatorServices tallentaa laskut CalculationManager luokkaan. Laskutoimitukset tallennetaan CalculatorServicestä CalculatorRepositoryyn. CalculatorRepositoryssa muodostetaan olio Calculations, jossa on kaikki laskutoimitukset. Nämä laskutoimutukset tulostetaan HistoryViewissä. Jos HistoryViewissä laskutoimituksia muokataan nämä muokkaukset tapahtuvat HistoryServicessä ja tallentuvat sieltä CalculatorRepositoryyn.
+#### Seuraaviin kaavioihin on kuvattu pääpiirtein luokkien väliset toiminnot
+
+CalculatorView lähettää komennot CalculatorService MenubarService ja AboutService luokille, kun laskimen näppäimiä painetaan. Sovelluksen sovelluslogiikasta vastaavat luokat CalculatorService, MenubarService, AboutService sekä HistoryService. CalculatorService tallentaa laskut CalculationManager luokkaan. Laskutoimitukset tallennetaan pysyvästi CalculatorServicestä CalculatorRepositoryyn, jossa ne lisätään tietokantaan. CalculatorRepositoryssa muodostetaan olio Calculations, jossa on kaikki laskutoimitukset. Nämä laskutoimutukset tulostetaan HistoryViewissä. Jos HistoryViewissä laskutoimituksia muokataan nämä muokkaukset tapahtuvat HistoryServicessä ja tallentuvat sieltä CalculatorRepositoryyn. AboutService alustaa AboutViewin näkymän.
 
 
 ```mermaid
@@ -81,7 +83,9 @@ classDiagram
     HistoryService --|> CalculatorRepository
 ```
 
-### Tämä kaavio kuvaa CalculatorServicen, CalculationManagerin ja CalculatorRepositoryn välistä toimintaa. CalculatorService vastaa laskimen sovelluslogiikasta. Se lähettää käskyt CalculationManagerille, joka hoitaa laskutoimitusten käsittelyn. CalculatorService kutsuu CalculationManageria, joka palauttaa laskutoimituksen, joka tulostetaan laskimen käyttöliittymään. Painamalla '='-nappia CalculatorService ratkaisee laskutoimituksen ja lähettää sen CalculatorRepositorylle, joka tallentaa laskutoimituksen ja vastauksen tietokantaan.
+### CalculatorService
+
+Tämä kaavio kuvaa CalculatorServicen, CalculationManagerin ja CalculatorRepositoryn välistä toimintaa. CalculatorService vastaa laskimen sovelluslogiikasta. Se lähettää käskyt CalculationManagerille, joka hoitaa laskutoimitusten käsittelyn. CalculatorService kutsuu CalculationManageria, joka palauttaa laskutoimituksen, joka tulostetaan laskimen käyttöliittymään. Painamalla '='-nappia CalculatorService ratkaisee laskutoimituksen ja lähettää sen CalculatorRepositorylle, joka tallentaa laskutoimituksen ja vastauksen tietokantaan.
 
 ```mermaid
 sequenceDiagram
@@ -110,7 +114,54 @@ sequenceDiagram
     CalculatorService->>CalculationManager: self._calculation.reset_points()
 ```
 
+### MenubarService
 
+Tämä kaavio kuvaa Menubarin toimintaa ja sitä miten se on liitoksissa muihin luokkiin.
+
+
+```mermaid
+sequenceDiagram
+    participant MenubarService
+    participant CalculatorService
+    participant CalculatorRepository
+    participant CalculationManager
+    participant HistoryView
+    participant Calculations
+
+    rect rgb(191, 223, 0)
+    Note over MenubarService: Create new
+    MenubarService->>CalculatorRepository: self._calculator_repository.delete_calculations()
+    MenubarService->>CalculatorService: self._calculator_service.reset()
+    MenubarService->>CalculationManager: self._calculation.delete()
+    end
+
+    rect rgb(110, 3, 160)
+    Note over MenubarService: Delete history
+    MenubarService->>CalculatorRepository: self._calculator_repository.delete_calculations()
+    end
+
+    rect rgb(0, 223, 160)
+    Note over MenubarService: Show history
+    MenubarService->>HistoryView: self._history_view.open_history_window()
+    MenubarService->>HistoryView: self._history_view.create_scrollbar()
+    MenubarService->>HistoryView: self._history_view.create_history_list()
+    HistoryView->>CalculatorRepository: self._calculation_repository.list_calculations()
+    CalculatorRepository->>Calculations: return [Calculations(row["calculation"], row["timestamp"]) for row in rows]
+    Calculations-->>HistoryView: choises created
+    end
+
+    rect rgb(110, 100, 160)
+    MenubarService->>HistoryView: self._history_view.config_scrollbar()
+    HistoryView->>HistoryService: self._history_service.replace_current_calculation_with_selected(self._listbox)
+    HistoryService->>CalculationManager: self._calculation_manager.insert_calculation(selected)
+    end
+
+    rect rgb(110, 100, 250)
+    MenubarService->>HistoryView: self._history_view.create_buttons()
+    HistoryView->>HistoryService: self._history_service.delete_calculation_from_history_view(self._listbox)
+    HistoryService->>CalculatorRepository: self._calculation_repository.delete_by_timestamp(selected)
+    end
+```
 
 
 ## Tietojen pysyväistallennus

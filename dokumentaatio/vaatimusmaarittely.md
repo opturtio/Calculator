@@ -2,11 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on tkinterillä toteutetttu laskin eli siinä on graafinen käyttöliittymä. Sovelluksella voi suorittaa perus laskutoimituksia.
-
-## Käyttäjät
-
-Käyttöliittymään ei ainakaan vielä tarvitse kirjautua. Laskinta voi alkaa käyttämään suoraan, mutta olen suunnitellut käyttäjäprofiilin luomista.
+Sovellus on tkinterillä toteutetttu laskin eli siinä on graafinen käyttöliittymä. Sovelluksella voi suorittaa peruslaskutoimituksia.
 
 ## Käyttöliittymäluonnos
 
@@ -21,6 +17,7 @@ Käyttöliittymään ei ainakaan vielä tarvitse kirjautua. Laskinta voi alkaa k
 - Laskimessa voi käyttää sulkeita
 - Laskutoimituksen voi poistaa tai sitä voi korjata pyyhkimällä viimeisin syöte
 - Laskimella voi laskea kokonais- tai liukulukuja
+- Laskimella voi laskea myös negatiivisilla luvuilla
 - Käyttäjä voi aloittaa kaiken alusta valitsemalla new
 - Käyttäjä voi poistua laskimesta valitsemalla exit
 - Käyttäjä voi nähdä tietoja laskimesta
@@ -30,5 +27,6 @@ Käyttöliittymään ei ainakaan vielä tarvitse kirjautua. Laskinta voi alkaa k
 
 - Graafinen laskin
 - Funktiot käyttöön
+- Laskimeen voisi luoda käyttäjän
 - Käyttäjillä voisi olla henkilökohtaisia väri/kuva teemoja
 - pi, prosentti, neperinluku jne. painikkeet
