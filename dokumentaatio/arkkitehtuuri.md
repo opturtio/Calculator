@@ -2,7 +2,7 @@
 
 ## Rakenne
 
-Sovellus noudattamaan referenssisovelluksen rakennetta:
+Sovellus noudattaa referenssisovelluksen rakennetta:
 
 ```mermaid
 graph TD;
@@ -135,12 +135,13 @@ sequenceDiagram
     MenubarService->>CalculationManager: self._calculation.delete()
     end
 
-    rect rgb(110, 3, 160)
+    rect rgb(255, 255, 160)
     Note over MenubarService: Delete history
     MenubarService->>CalculatorRepository: self._calculator_repository.delete_calculations()
     end
 
     rect rgb(0, 223, 160)
+    rect rgb(90, 13, 250)
     Note over MenubarService: Show history
     MenubarService->>HistoryView: self._history_view.open_history_window()
     MenubarService->>HistoryView: self._history_view.create_scrollbar()
@@ -160,6 +161,7 @@ sequenceDiagram
     MenubarService->>HistoryView: self._history_view.create_buttons()
     HistoryView->>HistoryService: self._history_service.delete_calculation_from_history_view(self._listbox)
     HistoryService->>CalculatorRepository: self._calculation_repository.delete_by_timestamp(selected)
+    end
     end
 ```
 
